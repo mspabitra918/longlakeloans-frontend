@@ -9,7 +9,9 @@ const inputBase =
 
 export function inputClass(error?: string) {
   return `${inputBase} ${
-    error ? "border-red-600 focus:border-red-700" : "border-line focus:border-ink"
+    error
+      ? "border-red-600 focus:border-red-700"
+      : "border-line focus:border-ink"
   }`;
 }
 
@@ -181,15 +183,19 @@ export function ChoiceGroup({
             role="radio"
             aria-checked={selected}
             onClick={() => onChange(o.value)}
-            className={`relative flex items-center justify-between gap-2 border px-4 py-3 text-left text-sm transition-colors ${
+            className={`relative flex items-center justify-between gap-2 border px-4 py-3 text-left text-sm transition-colors min-w-0 w-full ${
               selected
                 ? "border-ink bg-ink text-paper"
                 : `${error ? "border-red-600" : "border-line"} text-body hover:border-ink hover:text-ink`
             }`}
           >
-            {o.label}
+            {/* Added span wrapper with wrapping utilities */}
+            <span className="min-w-0 break-words [overflow-wrap:anywhere]">
+              {o.label}
+            </span>
+
             {selected && (
-              <Check className="w-4 h-4 shrink-0" strokeWidth={2} />
+              <Check className="w-4 h-4 shrink-0 ml-auto" strokeWidth={2} />
             )}
           </button>
         );

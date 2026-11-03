@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Apply | LongLake Loans",
   description:
     "Apply for a LongLake Loans personal loan from $1,000 to $35,000 in about five minutes. Checking your rate won't affect your credit score.",
+  alternates: { canonical: "/apply" },
 };
 
 // Accepts ?amount= from the loan estimator, snapped to the slider's $500 steps

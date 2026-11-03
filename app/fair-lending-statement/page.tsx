@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Fair Lending Statement | LongLake Loans",
   description:
     "LongLake Loans's commitment to equal credit opportunity for every applicant.",
+  alternates: { canonical: "/fair-lending-statement" },
 };
 
 export default function FairLendingStatementPage() {

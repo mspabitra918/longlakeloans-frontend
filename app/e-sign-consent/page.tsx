@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "E-Sign Consent | LongLake Loans",
   description:
     "Consent to receive LongLake Loans loan documents and sign your agreement electronically.",
+  alternates: { canonical: "/e-sign-consent" },
 };
 
 export default function ESignConsentPage() {

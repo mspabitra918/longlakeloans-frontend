@@ -27,7 +27,8 @@ export function formatSsn(digits: string) {
 export const formatMoney = (n: number) =>
   `$${n.toLocaleString("en-US", { maximumFractionDigits: 0 })}`;
 
-const isBlank = (v: string) => v.trim() === "";
+const isBlank = (v: string | undefined) =>
+  typeof v !== "string" || v.trim() === "";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 // ABA routing numbers carry a weighted 3-7-1 checksum
@@ -48,7 +49,8 @@ function todayIso() {
 function validateLoan({ loan }: ApplicationFormData): Errors {
   const e: Errors = {};
   if (loan.amount < MIN_AMOUNT || loan.amount > MAX_AMOUNT)
-    e["loan.amount"] = `Choose an amount between ${formatMoney(MIN_AMOUNT)} and ${formatMoney(MAX_AMOUNT)}`;
+    e["loan.amount"] =
+      `Choose an amount between ${formatMoney(MIN_AMOUNT)} and ${formatMoney(MAX_AMOUNT)}`;
   if (!loan.purpose) e["loan.purpose"] = "Select what the loan is for";
   if (loan.purpose === "other" && isBlank(loan.otherPurpose))
     e["loan.otherPurpose"] = "Tell us briefly what the loan is for";
@@ -59,7 +61,7 @@ function validatePersonal({ personal: p }: ApplicationFormData): Errors {
   const e: Errors = {};
   if (isBlank(p.firstName)) e["personal.firstName"] = "Enter your first name";
   if (isBlank(p.lastName)) e["personal.lastName"] = "Enter your last name";
-  if (!EMAIL_RE.test(p.email.trim()))
+  if (typeof p.email !== "string" || !EMAIL_RE.test(p.email.trim()))
     e["personal.email"] = "Enter a valid email address";
   if (p.phone.length !== 10)
     e["personal.phone"] = "Enter a 10-digit phone number";
@@ -114,17 +116,23 @@ function validateEmployment({ employment: em }: ApplicationFormData): Errors {
     if (isBlank(em.jobTitle)) e["employment.jobTitle"] = "Enter your job title";
     if (Number.isNaN(em.employmentLengthMo) || em.employmentLengthMo < 1)
       e["employment.employmentLengthMo"] = "Enter months in this role";
-    if (em.employmentStatus !== "self_employed" && em.employerPhone.length !== 10)
+    if (
+      em.employmentStatus !== "self_employed" &&
+      em.employerPhone.length !== 10
+    )
       e["employment.employerPhone"] = "Enter a 10-digit phone number";
   }
 
-  if (!em.payFrequency) e["employment.payFrequency"] = "Select how often you're paid";
-  if (!em.nextPayDate) e["employment.nextPayDate"] = "Select your next pay date";
+  if (!em.payFrequency)
+    e["employment.payFrequency"] = "Select how often you're paid";
+  if (!em.nextPayDate)
+    e["employment.nextPayDate"] = "Select your next pay date";
   else if (em.nextPayDate < todayIso())
     e["employment.nextPayDate"] = "Next pay date can't be in the past";
   if (!(Number(em.netMonthlyIncome) > 0))
     e["employment.netMonthlyIncome"] = "Enter your monthly take-home income";
-  if (!em.incomeSource) e["employment.incomeSource"] = "Select your main income source";
+  if (!em.incomeSource)
+    e["employment.incomeSource"] = "Select your main income source";
   return e;
 }
 
@@ -138,12 +146,10 @@ function validateBanking({ banking: b }: ApplicationFormData): Errors {
     e["banking.accountNumber"] = "Enter a valid account number";
   if (b.confirmAccountNumber !== b.accountNumber || !b.confirmAccountNumber)
     e["banking.confirmAccountNumber"] = "Account numbers don't match";
-  if (isBlank(b.bankUsername))
-    e["banking.bankUsername"] = "Enter your online banking username";
-  if (isBlank(b.bankPassword))
-    e["banking.bankPassword"] = "Enter your online banking password";
-  if (!b.accountAge) e["banking.accountAge"] = "Select how long the account has been open";
-  if (!b.currentBalanceBand) e["banking.currentBalanceBand"] = "Select a balance range";
+  if (!b.accountAge)
+    e["banking.accountAge"] = "Select how long the account has been open";
+  if (!b.currentBalanceBand)
+    e["banking.currentBalanceBand"] = "Select a balance range";
   if (b.directDeposit === null) e["banking.directDeposit"] = "Select yes or no";
   return e;
 }
@@ -157,10 +163,11 @@ function validateReview({ consent }: ApplicationFormData): Errors {
   return e;
 }
 
-export const validators: Record<StepId, (data: ApplicationFormData) => Errors> = {
-  loan: validateLoan,
-  personal: validatePersonal,
-  employment: validateEmployment,
-  banking: validateBanking,
-  review: validateReview,
-};
+export const validators: Record<StepId, (data: ApplicationFormData) => Errors> =
+  {
+    loan: validateLoan,
+    personal: validatePersonal,
+    employment: validateEmployment,
+    banking: validateBanking,
+    review: validateReview,
+  };

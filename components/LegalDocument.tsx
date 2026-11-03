@@ -6,12 +6,64 @@ import { agreements } from "@/components/agreements";
 import { CtaBanner, Eyebrow, container, section } from "@/components/ui";
 import { companyContact } from "@/components/CompanyContact";
 
-export const lastUpdated = "October 1, 2026";
+export const lastUpdated = "April 3, 2022";
 
 export function getAgreement(id: string) {
   const doc = agreements.find((item) => item.id === id);
   if (!doc) notFound();
   return doc;
+}
+
+// Helper function to render text with bold field labels (e.g., "Personally Identifiable Information (PII):")
+function renderFormattedText(text: string) {
+  const parts = text.split(/([^:]+:)/g);
+  if (parts.length > 1 && !parts[0].includes(" ")) {
+    return text;
+  }
+
+  // If line starts with a title ending in a colon, bold the prefix
+  const match = text.match(/^([^:]+:)(.*)$/);
+  if (match) {
+    return (
+      <>
+        <strong className="font-semibold text-ink">{match[1]}</strong>
+        {match[2]}
+      </>
+    );
+  }
+  return text;
+}
+
+// Helper to render body content: handles paragraphs vs bullet point lists cleanly
+function renderBodyContent(body: string) {
+  const blocks = body.split("\n\n");
+  const firstBlock = blocks[0];
+  const remainingBlocks = blocks.slice(1);
+
+  // Check if remaining blocks are bullet points
+  const hasBullets = remainingBlocks.some((block) =>
+    block.trim().startsWith("•"),
+  );
+
+  if (!hasBullets) {
+    return (
+      <p className="mt-4 text-base text-body leading-relaxed max-w-2xl whitespace-pre-line">
+        {body}
+      </p>
+    );
+  }
+
+  return (
+    <div className="mt-4 space-y-4 max-w-2xl">
+      <p className="text-base text-body leading-relaxed">{firstBlock}</p>
+      <ul className="space-y-3 list-disc pl-5 text-base text-body leading-relaxed">
+        {remainingBlocks.map((block, i) => {
+          const cleanText = block.replace(/^•\s*/, "").trim();
+          return <li key={i}>{renderFormattedText(cleanText)}</li>;
+        })}
+      </ul>
+    </div>
+  );
 }
 
 // Shared layout for standalone legal document pages
@@ -45,7 +97,7 @@ export default function LegalDocument({ id }: { id: string }) {
                 ))}
               </ol>
               <p className="mt-6 text-xs text-muted">
-                Last updated {lastUpdated}
+                Effective Date: {lastUpdated}
               </p>
             </div>
           </aside>
@@ -64,19 +116,18 @@ export default function LegalDocument({ id }: { id: string }) {
                 <h2 className="mt-3 text-2xl font-semibold tracking-tight">
                   {part.heading}
                 </h2>
-                <p className="mt-4 text-base text-body leading-relaxed max-w-2xl">
-                  {part.body}
-                </p>
+
+                {renderBodyContent(part.body)}
               </div>
             ))}
 
             <div className="border-t border-line pt-8 text-sm text-body leading-relaxed max-w-2xl">
               Questions about this document? Email{" "}
               <a
-                href="mailto:support@longlakeloans.com"
+                href={`mailto:${companyContact.email.display}`}
                 className="text-ink underline underline-offset-4"
               >
-                support@longlakeloans.com
+                {companyContact.email.display}
               </a>{" "}
               or call{" "}
               <a

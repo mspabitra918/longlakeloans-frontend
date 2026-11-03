@@ -3,12 +3,12 @@ import React from "react";
 import PageShell, { Muted } from "@/components/PageShell";
 import ContactForm from "@/components/ContactForm";
 import { Eyebrow, TextLink, container } from "@/components/ui";
-import { CompanyContactInfo, companyContact } from "@/components/CompanyContact";
 
 export const metadata: Metadata = {
-  title: "Contact Us | LongLake Loans",
+  title: "Contact LongLake Loans | Fast US Personal Loans from California",
   description:
-    "Get in touch with the LongLake Loans support team by phone, email, or our online contact form.",
+    "Reach our California-based support team for US personal loans. Get help with funding for auto repairs, emergencies, major purchases, or rent in 24-48 hours.",
+  alternates: { canonical: "/contact" },
 };
 
 const hours = [
@@ -26,46 +26,62 @@ export default function ContactPage() {
           Get in touch. <Muted>We&apos;re here to help.</Muted>
         </>
       }
-      subtitle="Questions about your application, an existing loan, or partnering with us? Reach out and a real person will get back to you."
+      subtitle="Questions about your application, an existing loan, or partnering with us? Reach out and a real person will get back to you. Our California headquarters supports borrowers across the entire US seeking fast funding for auto repairs, emergency expenses, major purchases, and rent—typically delivered in 24 to 48 hours, though some cases may take more time."
     >
       {/* Contact Methods */}
       <section className="border-t border-line">
         <div
           className={`${container} grid grid-cols-1 md:grid-cols-3 md:divide-x divide-line`}
         >
-          {[
-            { title: "Phone", note: "Fastest for urgent questions" },
-            { title: "Email", note: "We reply within 1 business day" },
-            { title: "Office", note: "Visits by appointment only" },
-          ].map((method) => (
-            <div
-              key={method.title}
-              className="py-10 md:px-8 md:first:pl-0 border-b md:border-b-0 border-line last:border-b-0"
-            >
-              <Eyebrow>{method.title}</Eyebrow>
-              {method.title === "Phone" ? (
-                <CompanyContactInfo
-                  phoneTypes={["tollFree", "local"]}
-                  className="mt-4 space-y-2"
-                  linkClassName="block text-lg font-medium underline-offset-4 hover:underline wrap-break-word"
-                />
-              ) : method.title === "Email" ? (
-                <a
-                  href={companyContact.email.href}
-                  className="mt-4 block text-lg font-medium underline-offset-4 hover:underline wrap-break-word"
-                >
-                  {companyContact.email.display}
-                </a>
-              ) : (
-                <CompanyContactInfo
-                  includeAddress
-                  className="mt-4 text-lg font-medium"
-                  addressClassName="wrap-break-word"
-                />
-              )}
-              <p className="mt-2 text-sm text-muted">{method.note}</p>
+          {/* Phone Block */}
+          <div className="py-10 md:px-8 md:first:pl-0 border-b md:border-b-0 border-line">
+            <Eyebrow>Phone</Eyebrow>
+            <div className="mt-4 space-y-2">
+              <a
+                href="tel:18003212233"
+                className="block text-lg font-medium underline-offset-4 hover:underline wrap-break-word"
+              >
+                Toll-Free: (800) 321-2233
+              </a>
+              <a
+                href="tel:17472005900"
+                className="block text-lg font-medium underline-offset-4 hover:underline wrap-break-word"
+              >
+                Local: (747) 200-5900
+              </a>
             </div>
-          ))}
+            <p className="mt-2 text-sm text-muted">
+              Fastest for urgent questions
+            </p>
+          </div>
+
+          {/* Email Block */}
+          <div className="py-10 md:px-8 border-b md:border-b-0 border-line">
+            <Eyebrow>Email</Eyebrow>
+            <a
+              href="mailto:support@longlakeloans.com"
+              className="mt-4 block text-lg font-medium underline-offset-4 hover:underline wrap-break-word"
+            >
+              support@longlakeloans.com
+            </a>
+            <p className="mt-2 text-sm text-muted">
+              We reply within 1 business day
+            </p>
+          </div>
+
+          {/* Office Block */}
+          <div className="py-10 md:px-8">
+            <Eyebrow>Office</Eyebrow>
+            <address className="mt-4 text-lg font-medium not-italic wrap-break-word">
+              626 Wilshire Blvd - 5th Floor, Ste 575
+              <br />
+              Los Angeles, CA 90017
+            </address>
+            <p className="mt-2 text-sm text-muted">
+              Visits by appointment only. Serving the entire USA directly from
+              our California hub.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -79,7 +95,9 @@ export default function ContactPage() {
               </h2>
               <p className="mt-4 text-sm text-body leading-relaxed">
                 Fill out the form and the right member of our team will get back
-                to you.
+                to you. Whether you are inquiring about a pending auto repair
+                loan or funding for a major purchase, please don&apos;t include
+                your SSN or bank account numbers in the message.
               </p>
             </div>
 

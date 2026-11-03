@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy | LongLake Loans",
   description:
     "How LongLake Loans collects, uses, shares, and protects your personal information.",
+  alternates: { canonical: "/privacy-policy" },
 };
 
 export default function PrivacyPolicyPage() {

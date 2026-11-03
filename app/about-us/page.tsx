@@ -4,34 +4,35 @@ import PageShell, { Muted } from "@/components/PageShell";
 import { CtaBanner, SectionHeader, container, section } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "About Us | LongLake Loans",
+  title: "About LongLake Loans | Fast US Personal Loans from California",
   description:
-    "Learn about LongLake Loans's mission to make personal lending fast, fair, and transparent for responsible borrowers.",
+    "Based in California, LongLake Loans provides nationwide personal loans for emergencies, auto repairs, major purchases, and rent. Learn about our mission for fair, fast funding in 24-48 hours.",
+  alternates: { canonical: "/about-us" },
 };
 
 const stats = [
   { value: "$45M+", label: "Loans funded" },
-  { value: "28K+", label: "Borrowers served" },
+  { value: "28K+", label: "Satisfied borrowers" },
   { value: "5 min", label: "Average application" },
-  { value: "4.8/5", label: "Customer rating" },
+  { value: "4.8/5", label: "Trustpilot Rating" },
 ];
 
 const values = [
   {
     title: "Fairness",
-    desc: "Clear terms and honest pricing. We show you the full cost of your loan before you sign anything.",
+    desc: "Clear terms and honest pricing. We don't hide the true cost of your loan behind fine print.",
   },
   {
     title: "Security",
-    desc: "Bank-grade 256-bit encryption and strict data controls protect every application end-to-end.",
+    desc: "Bank-grade 256-bit encryption protects your personal data from application to final deposit.",
   },
   {
     title: "Simplicity",
-    desc: "Three steps, one screen at a time. We removed every form field that didn't need to be there.",
+    desc: "Three steps, five minutes of your time. We only ask for the information we absolutely need to know to process your application.",
   },
   {
     title: "Responsibility",
-    desc: "We only lend what we believe you can comfortably repay, and we're here to help if things change.",
+    desc: "We only lend what we believe you can comfortably repay, ensuring your financial health remains a priority.",
   },
 ];
 
@@ -39,30 +40,50 @@ const milestones = [
   {
     year: "2021",
     title: "LongLake Loans founded",
-    desc: "Started by a small team of fintech engineers and lending veterans frustrated by slow, paper-heavy loan processes.",
+    desc: "LongLake Loans founded by a team of finance engineers and lending veterans in California to simplify personal finance.",
   },
   {
     year: "2022",
-    title: "3-step application launched",
-    desc: "Rebuilt the entire application into three simple steps with instant bank verification.",
+    title: "3-step application rollout",
+    desc: "Rebuilding the online process to remove the stress of traditional bank applications.",
+  },
+  {
+    year: "2023",
+    title: "$10M in loans funded",
+    desc: "Expanding our reach to help more US borrowers manage major purchases and emergency expenses.",
   },
   {
     year: "2024",
-    title: "$20M in loans funded",
-    desc: "Expanded our lending partner network and introduced same-day direct deposit.",
-  },
-  {
-    year: "2026",
-    title: "$45M+ and growing",
-    desc: "Serving tens of thousands of borrowers with an average application time of just 5 minutes.",
+    title: "20,000+ borrowers reached",
+    desc: "Becoming a trusted nationwide platform.",
   },
 ];
 
 const team = [
-  { name: "Alex Morgan", role: "Co-Founder & CEO", initials: "AM" },
-  { name: "Priya Shah", role: "Co-Founder & CTO", initials: "PS" },
-  { name: "Daniel Reyes", role: "Head of Lending", initials: "DR" },
-  { name: "Chloe Bennett", role: "Head of Customer Care", initials: "CB" },
+  {
+    name: "Alex Mercer",
+    role: "Founder & CEO",
+    initials: "AM",
+    bio: "Dedicated to building a nationwide lending platform that typically delivers funds within 24 to 48 hours (though some cases may require additional processing time).",
+  },
+  {
+    name: "Priya Sharma",
+    role: "Co-founder & COO",
+    initials: "PS",
+    bio: "Overseeing our California-based operations to ensure seamless processing across the US.",
+  },
+  {
+    name: "David Reyes",
+    role: "Head of Engineering",
+    initials: "DR",
+    bio: "Architecting the secure infrastructure that makes our 5-minute application possible.",
+  },
+  {
+    name: "Chloe Bennett",
+    role: "Head of Customer Success",
+    initials: "CB",
+    bio: "Leading our support team to guide you through funding your rent, auto repairs, or emergencies.",
+  },
 ];
 
 export default function AboutPage() {
@@ -74,9 +95,9 @@ export default function AboutPage() {
           Modern lending. <Muted>Built for responsible borrowers.</Muted>
         </>
       }
-      subtitle="We replaced long lines and tedious paperwork with a clear, secure 3-step online flow — so you can get the money you need without the hassle."
+      subtitle="Operating from our Los Angeles, California headquarters, LongLake Loans is dedicated to providing transparent funding to borrowers across the United States. Whether you are facing an emergency expense, an unexpected auto repair, a major purchase, or need help bridging a rent or mortgage payment, our streamlined online platform is designed to get you the money you need without the hassle."
     >
-      {/* Stats */}
+      {/* Metrics Block */}
       <section className="border-t border-line">
         <div
           className={`${container} grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-0 md:divide-x divide-line`}
@@ -95,7 +116,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Mission & Vision */}
+      {/* Mission & Vision Section */}
       <section className={section}>
         <div className={container}>
           <SectionHeader eyebrow="01 — Purpose" title="Why we exist." />
@@ -103,31 +124,27 @@ export default function AboutPage() {
             <div className="border-t border-ink pt-6">
               <h3 className="text-lg font-semibold">Our mission</h3>
               <p className="mt-3 text-sm text-body leading-relaxed">
-                To give everyday people fast, fair access to credit through
-                technology that is transparent by design. No hidden fees, no
-                confusing fine print, and no waiting weeks for an answer.
+                To empower people with the financial tools they need to overcome
+                life&apos;s hurdles—such as sudden auto repairs or emergency
+                medical bills—by making credit fair, clear, and accessible.
               </p>
             </div>
             <div className="border-t border-ink pt-6">
               <h3 className="text-lg font-semibold">Our vision</h3>
               <p className="mt-3 text-sm text-body leading-relaxed">
-                A world where borrowing is simple and trustworthy — where every
-                borrower understands exactly what they&apos;re agreeing to and
-                feels in control of their finances.
+                A world where lending is driven by technology instead of red
+                tape, ensuring that securing funds for a major purchase or a
+                rent payment is as simple as checking your everyday finances.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values */}
+      {/* Core Values Section */}
       <section className={`${section} bg-wash`}>
         <div className={container}>
-          <SectionHeader
-            eyebrow="02 — Values"
-            title="What we stand for."
-            text="Four principles guide every product decision we make."
-          />
+          <SectionHeader eyebrow="02 — Values" title="What we stand for." />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-line">
             {values.map((value, i) => (
               <div
@@ -147,7 +164,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Story */}
+      {/* Company Timeline Section */}
       <section className={section}>
         <div className={container}>
           <SectionHeader eyebrow="03 — History" title="Our story." />
@@ -172,18 +189,21 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team */}
+      {/* Leadership Team Section */}
       <section className={section}>
         <div className={container}>
           <SectionHeader eyebrow="04 — Leadership" title="The team." />
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member) => (
-              <div key={member.name}>
+              <div key={member.name} className="flex flex-col">
                 <div className="aspect-square bg-wash border border-line flex items-center justify-center text-3xl font-semibold text-muted">
                   {member.initials}
                 </div>
-                <h3 className="mt-4 text-sm font-semibold">{member.name}</h3>
-                <p className="text-sm text-muted">{member.role}</p>
+                <h3 className="mt-4 text-base font-semibold">{member.name}</h3>
+                <p className="text-sm font-medium text-accent">{member.role}</p>
+                <p className="mt-2 text-xs text-body leading-relaxed">
+                  {member.bio}
+                </p>
               </div>
             ))}
           </div>

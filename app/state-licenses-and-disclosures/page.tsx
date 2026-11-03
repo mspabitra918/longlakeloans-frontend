@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "State Licenses & Disclosures | LongLake Loans",
   description:
     "Where LongLake Loans is licensed to lend and the disclosures required in your state.",
+  alternates: { canonical: "/state-licenses-and-disclosures" },
 };
 
 export default function StateLicensesPage() {

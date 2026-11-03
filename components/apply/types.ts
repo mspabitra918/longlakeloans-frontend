@@ -49,8 +49,7 @@ export type ApplicationFormData = {
     bankName: string;
     accountType: string;
     routingNumber: string;
-    bankUsername: string;
-    bankPassword: string;
+    //
     accountNumber: string;
     confirmAccountNumber: string;
 
@@ -109,8 +108,6 @@ export function createInitialFormData(amount = 5000): ApplicationFormData {
       bankName: "",
       accountType: "",
       routingNumber: "",
-      bankUsername: "",
-      bankPassword: "",
       accountNumber: "",
       confirmAccountNumber: "",
       accountAge: "",

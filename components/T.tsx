@@ -25,58 +25,88 @@ import {
   Lock,
   Smartphone,
   Clock,
+  Wrench,
+  AlertTriangle,
+  ShoppingBag,
+  Home,
 } from "lucide-react";
 
-export default function T() {
+export default function HomeLandingPage() {
   // Interactive Calculator State for Hero Section
   const [loanAmount, setLoanAmount] = useState(5000);
   const [loanTerm, setLoanTerm] = useState(24);
 
+  const primaryUseCases = [
+    {
+      icon: Wrench,
+      title: "Auto Repair & Car Expenses",
+      desc: "Get back on the road quickly with fast financing for unexpected mechanic bills, transmission replacements, or collision repairs.",
+    },
+    {
+      icon: AlertTriangle,
+      title: "Emergency Expenses",
+      desc: "Cover surprise medical bills, sudden travel needs, or urgent family matters without relying on high-interest credit cards.",
+    },
+    {
+      icon: ShoppingBag,
+      title: "Major Purchases",
+      desc: "Secure fixed-rate funding for essential appliances, home repairs, or significant life events without depleting your savings.",
+    },
+    {
+      icon: Home,
+      title: "Rent or Mortgage Payments",
+      desc: "Bridge temporary income gaps with a fast cash infusion to cover monthly housing costs, utilities, or relocation expenses on time.",
+    },
+  ];
+
   const steps = [
     {
       stepNumber: 1,
-      title: "Loan & personal details",
-      subtitle: "Tell us about yourself, your employment and income.",
+      title: "Loan & Personal Details",
+      subtitle:
+        "Select your requested amount and provide basic information. Checking your options uses a soft inquiry with no impact to your credit score.",
       subSections: [
-        { num: "1.1", name: "Tell us about yourself" },
-        { num: "1.2", name: "Employment" },
-        { num: "1.3", name: "Your income details" },
+        { num: "1.1", name: "Personal information" },
+        { num: "1.2", name: "Employment status" },
+        { num: "1.3", name: "Income details" },
       ],
     },
     {
       stepNumber: 2,
-      title: "Banking verification",
-      subtitle: "Securely link your account for instant identity confirmation.",
-      subSections: [{ num: "2.1", name: "Bank account link" }],
+      title: "Secure Banking Verification",
+      subtitle:
+        "Connect your bank account securely to verify income instantly, without the hassle of uploading traditional paperwork.",
+      subSections: [{ num: "2.1", name: "Instant encrypted link" }],
     },
     {
       stepNumber: 3,
-      title: "Where we send funds",
-      subtitle: "Choose your payout account and e-sign your agreement.",
-      subSections: [{ num: "3.1", name: "Direct deposit destination" }],
+      title: "Receive Funds",
+      subtitle:
+        "Review your terms, sign digitally, and receive funds directly to your checking account. Funding is typically completed within 24 to 48 hours, though some cases may require additional processing time.",
+      subSections: [{ num: "3.1", name: "Direct deposit disbursement" }],
     },
   ];
 
   const whyChooseUs = [
     {
-      icon: Zap,
-      title: "Fast approval",
-      desc: "Complete all three steps in under 5 minutes with real-time automated verification.",
-    },
-    {
-      icon: Lock,
-      title: "Bank-grade security",
-      desc: "Your data is protected with 256-bit encryption and strict privacy controls.",
+      icon: Building2,
+      title: "Nationwide Reach",
+      desc: "Serving responsible borrowers across the US directly from our Los Angeles, California headquarters.",
     },
     {
       icon: EyeOff,
-      title: "Transparent terms",
-      desc: "No hidden charges or origination fees. Your full cost is shown upfront.",
+      title: "Zero Hidden Fees",
+      desc: "We never charge unexpected origination fees or prepayment penalties.",
     },
     {
       icon: Smartphone,
-      title: "Fully digital",
-      desc: "No paperwork or branch visits. Apply from any device, anywhere.",
+      title: "5-Minute Application",
+      desc: "Complete your secure online application quickly from any mobile device or desktop computer.",
+    },
+    {
+      icon: Lock,
+      title: "Bank-Grade Security",
+      desc: "Protected with 256-bit encryption to keep your data safe throughout the entire process.",
     },
   ];
 
@@ -109,7 +139,7 @@ export default function T() {
     },
     {
       q: "How fast will I receive my funds?",
-      a: "Once your agreement is signed, funds are sent via direct deposit, often arriving within 24 business hours.",
+      a: "Once approved and signed, funds are typically delivered in 24 to 48 hours, though some cases may require additional processing time.",
     },
     {
       q: "Will checking my rate affect my credit score?",
@@ -121,7 +151,7 @@ export default function T() {
     { value: "$45M+", label: "Loans funded" },
     { value: "5 min", label: "Average application" },
     { value: "$0", label: "Origination fees" },
-    { value: "24 hrs", label: "Typical funding time" },
+    { value: "24–48 hrs", label: "Typical funding time" },
   ];
 
   // Estimated monthly payment calculation formula
@@ -136,6 +166,12 @@ export default function T() {
 
   return (
     <div className="min-h-screen bg-paper text-ink font-sans antialiased">
+      <title>Fast Online Personal Loans in the US | LongLake Loans</title>
+      <meta
+        name="description"
+        content="Apply for unsecured personal loans across the US from our California headquarters. Cover auto repairs, emergency expenses, major purchases, or rent with funding typically in 24 to 48 hours."
+      />
+
       <Navbar />
 
       {/* Hero Section */}
@@ -143,18 +179,18 @@ export default function T() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-end">
           <div className="lg:col-span-7">
             <Eyebrow>Personal loans · $1,000 – $35,000</Eyebrow>
-            <h1 className="mt-6 text-5xl sm:text-7xl font-semibold tracking-tight leading-[1.02]">
-              Personal loans.
-              <br />
-              <span className="text-muted">Three simple steps.</span>
+            <h1 className="mt-6 text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05]">
+              Fast Personal Loans for Unexpected Expenses Nationwide
             </h1>
             <p className="mt-8 text-lg text-body max-w-xl leading-relaxed">
-              Clear terms, no origination fees, and direct deposit to your bank
-              — often within one business day.
+              Based in California, LongLake Loans provides secure funding across
+              the US for auto repairs, emergencies, major purchases, and rent.
+              Check your rate in minutes with no hidden fees, and receive funds
+              typically within 24 to 48 hours.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-3">
               <Link href="/apply" className={buttonPrimary}>
-                Start your application{" "}
+                Check Your Rate{" "}
                 <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
               </Link>
               <Link href="/how-it-works" className={buttonSecondary}>
@@ -167,20 +203,20 @@ export default function T() {
                 encryption
               </span>
               <span className="flex items-center gap-2">
-                <Zap className="w-4 h-4" strokeWidth={1.5} /> Instant decision
+                <Zap className="w-4 h-4" strokeWidth={1.5} /> Soft credit check
               </span>
               <span className="flex items-center gap-2">
-                <Clock className="w-4 h-4" strokeWidth={1.5} /> Same-day funding
+                <Clock className="w-4 h-4" strokeWidth={1.5} /> 24–48 hr funding
               </span>
             </div>
           </div>
 
           {/* Loan Estimator */}
           <div className="lg:col-span-5">
-            <div className="border border-line p-8">
+            <div className="border border-line p-8 bg-paper">
               <div className="flex items-center justify-between">
-                <Eyebrow>Loan estimate</Eyebrow>
-                <span className="text-xs text-muted">8.00% APR example</span>
+                <Eyebrow>Loan estimator</Eyebrow>
+                <span className="text-xs text-muted">Starting at 10% APR</span>
               </div>
 
               <div className="mt-8">
@@ -263,12 +299,37 @@ export default function T() {
         </div>
       </section>
 
+      {/* Primary Use Cases Section */}
+      <section id="use-cases" className={`${section} bg-wash`}>
+        <div className={container}>
+          <SectionHeader
+            eyebrow="01 — Solutions"
+            title="Quick Funding for Life's Major Expenses"
+            text="Flexible personal loans tailored for critical individual and family needs."
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-line">
+            {primaryUseCases.map((card) => (
+              <div
+                key={card.title}
+                className="border-r border-b border-line bg-paper p-8 flex flex-col"
+              >
+                <card.icon className="w-6 h-6 text-ink" strokeWidth={1.5} />
+                <h3 className="mt-8 text-base font-semibold">{card.title}</h3>
+                <p className="mt-2 text-sm text-body leading-relaxed flex-1">
+                  {card.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* How It Works */}
       <section id="how-it-works" className={section}>
         <div className={container}>
           <SectionHeader
-            eyebrow="01 — Process"
-            title="Three steps, start to finish."
+            eyebrow="02 — Process"
+            title="A Transparent 3-Step Online Lending Process"
             text="We've streamlined the application so you know exactly what to expect at every stage."
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
@@ -303,12 +364,12 @@ export default function T() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
+      {/* Why Choose Us / Trust Metrics */}
       <section id="why-us" className={`${section} bg-wash`}>
         <div className={container}>
           <SectionHeader
-            eyebrow="02 — Why LongLake Loans"
-            title="Lending designed around the borrower."
+            eyebrow="03 — Why LongLake Loans"
+            title="Lending Designed Around the US Borrower"
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-line">
             {whyChooseUs.map((card) => (
@@ -331,7 +392,7 @@ export default function T() {
       <section id="partner" className={section}>
         <div className={container}>
           <SectionHeader
-            eyebrow="03 — Partners"
+            eyebrow="04 — Partners"
             title="Grow with our lending platform."
             text="Modern API technology and verified lead channels for lenders, affiliates, and product teams."
           />
@@ -357,7 +418,7 @@ export default function T() {
       {/* FAQ */}
       <section id="faq" className={section}>
         <div className={container}>
-          <SectionHeader eyebrow="04 — Questions" title="Common questions." />
+          <SectionHeader eyebrow="05 — Questions" title="Common questions." />
           <div className="lg:ml-[33.333%] lg:pl-8 border-t border-line">
             {faqs.map((faq, idx) => (
               <details
@@ -388,12 +449,12 @@ export default function T() {
       <section id="about" className={section}>
         <div className={container}>
           <SectionHeader
-            eyebrow="05 — About"
+            eyebrow="06 — About"
             title="Modernizing loan access for responsible borrowers."
-            text="LongLake Loans was built to replace long lines and tedious paperwork with a clear 3-step online flow. We prioritize data security, fair terms, and rapid disbursement."
+            text="LongLake Loans was built to replace long lines and tedious paperwork with a clear 3-step online flow. Operating from California to serve borrowers nationwide, we prioritize data security, fair terms, and rapid disbursement."
           />
           <div className="lg:ml-[33.333%] lg:pl-8">
-            <TextLink href="/about">Learn more about us</TextLink>
+            <TextLink href="/about-us">Learn more about us</TextLink>
           </div>
         </div>
       </section>

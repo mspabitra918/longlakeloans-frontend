@@ -97,9 +97,35 @@ type StepProps = {
 
 const numberValue = (n: number) => (Number.isNaN(n) ? "" : String(n));
 
-// Placeholder until the backend issues real application IDs
-const createReference = () =>
-  `CF-${Date.now().toString(36).toUpperCase().slice(-6)}`;
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5001";
+
+type SubmitResult = { applicationId: string; status: string };
+
+// Posts the whole wizard in one request. Unanswered numeric fields are NaN,
+// which JSON sends as null — the backend treats that as "not provided".
+async function submitApplication(
+  data: ApplicationFormData,
+): Promise<SubmitResult> {
+  let res: Response;
+  try {
+    res = await fetch(`${API_URL}/api/apply/submit`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ data }),
+    });
+  } catch {
+    throw new Error(
+      "We couldn't reach our servers. Check your connection and try again.",
+    );
+  }
+  const body = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    throw new Error(
+      body.error ?? "Something went wrong submitting your application.",
+    );
+  }
+  return { applicationId: body.applicationId, status: body.status };
+}
 
 export default function ApplicationForm({
   initialAmount,
@@ -111,7 +137,8 @@ export default function ApplicationForm({
   const [current, setCurrent] = useState(0);
   const [furthest, setFurthest] = useState(0);
   const [submitting, setSubmitting] = useState(false);
-  const [reference, setReference] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [result, setResult] = useState<SubmitResult | null>(null);
   const topRef = useRef<HTMLDivElement>(null);
 
   const step = steps[current];
@@ -168,11 +195,15 @@ export default function ApplicationForm({
       topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       return;
     }
-    // TODO: send the application to the backend once the API is available
     setSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-    setSubmitting(false);
-    setReference(createReference());
+    setSubmitError(null);
+    try {
+      setResult(await submitApplication(data));
+    } catch (err) {
+      setSubmitError((err as Error).message);
+    } finally {
+      setSubmitting(false);
+    }
     topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
@@ -194,7 +225,7 @@ export default function ApplicationForm({
     }
   }, [searchParams]);
 
-  if (reference) {
+  if (result) {
     return (
       <div
         ref={topRef}
@@ -204,15 +235,24 @@ export default function ApplicationForm({
         <h2 className="mt-8 text-3xl sm:text-4xl font-semibold tracking-tight">
           Application received.
         </h2>
-        <p className="mt-4 text-base text-body leading-relaxed">
-          Thanks, {data.personal.firstName}. We&apos;re reviewing your request
-          for {formatMoney(data.loan.amount)} and will email{" "}
-          <span className="text-ink font-medium">{data.personal.email}</span>{" "}
-          with a decision shortly.
-        </p>
+        {result.status === "bank_verification_pending" ? (
+          <p className="mt-4 text-base text-body leading-relaxed">
+            Thanks, {data.personal.firstName}. One step left: verify your bank
+            account. We&apos;ve emailed{" "}
+            <span className="text-ink font-medium">{data.personal.email}</span>{" "}
+            a secure link, and we&apos;ll send reminders until it&apos;s done.
+          </p>
+        ) : (
+          <p className="mt-4 text-base text-body leading-relaxed">
+            Thanks, {data.personal.firstName}. We&apos;re reviewing your request
+            for {formatMoney(data.loan.amount)} and will email{" "}
+            <span className="text-ink font-medium">{data.personal.email}</span>{" "}
+            with a decision shortly.
+          </p>
+        )}
         <dl className="mt-10 border-t border-line text-sm">
           {[
-            ["Reference number", reference],
+            ["Application ID", result.applicationId],
             ["Requested amount", formatMoney(data.loan.amount)],
             [
               "Deposit account",
@@ -375,6 +415,15 @@ export default function ApplicationForm({
               />
             )}
           </div>
+
+          {submitError && isLast && (
+            <p
+              role="alert"
+              className="mx-6 sm:mx-10 mb-6 border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800"
+            >
+              {submitError}
+            </p>
+          )}
 
           <footer className="px-6 sm:px-10 py-6 border-t border-line bg-wash flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-3">
             {current > 0 ? (
@@ -1003,7 +1052,7 @@ function BankingStep({ data, update, errors }: StepProps) {
         </Field>
       </FormSection>
 
-      <FormSection
+      {/* <FormSection
         title="Verify with online banking"
         text="We use a read-only connection to confirm your identity and income. We can't move money with these details."
       >
@@ -1037,7 +1086,7 @@ function BankingStep({ data, update, errors }: StepProps) {
           <Lock className="w-3.5 h-3.5 mt-0.5 shrink-0" strokeWidth={1.5} />
           Your credentials are encrypted and never stored after verification.
         </p>
-      </FormSection>
+      </FormSection> */}
 
       <FormSection title="Account history">
         <Field

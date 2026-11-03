@@ -5,92 +5,106 @@ import PageShell, { Muted } from "@/components/PageShell";
 import { CtaBanner, SectionHeader, container, section } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "How It Works | LongLake Loans",
+  title: "How Our Loan Process Works | LongLake Loans USA",
   description:
-    "Apply for a LongLake Loans personal loan in 3 simple steps: personal details, banking verification, and funds disbursement.",
+    "See how to get a personal loan for emergencies, auto repairs, major purchases, or rent. Submit your app, verify banking, speak to an underwriter, and get funded in 24-48 hours.",
+  alternates: { canonical: "/how-it-works" },
 };
 
 const steps = [
   {
     stepNumber: 1,
-    title: "Loan & personal details",
-    duration: "About 3 minutes",
+    title: "Submit Your Application",
+    duration: "Step 1: Loan & personal details",
     intro:
-      "Choose how much you want to borrow and for how long, then tell us a little about yourself so we can match you with the right offer.",
+      "Start by selecting your required loan amount and providing basic personal information. Checking your options utilizes a soft pull that will not impact your credit score.",
     points: [
       {
-        name: "Tell us about yourself",
-        desc: "Full legal name, date of birth, email, phone number, and current residential address.",
+        name: "Personal & Loan Details",
+        desc: "Provide your basic contact information, requested loan amount, and personal details.",
       },
       {
-        name: "Employment",
-        desc: "Employment status, job title, employer name, and how long you've been in your current role.",
-      },
-      {
-        name: "Your income details",
-        desc: "Monthly take-home pay, pay frequency, other income sources, and recurring obligations.",
+        name: "No Credit Impact",
+        desc: "Initial rate checks use a soft credit inquiry that won't affect your credit score.",
       },
     ],
   },
   {
     stepNumber: 2,
-    title: "Banking verification",
-    duration: "About 1 minute",
+    title: "Banking Verification",
+    duration: "Step 2: Instant digital connection",
     intro:
-      "Securely link your primary checking account. This confirms your identity and income instantly — no paystub uploads required.",
+      "Once your initial details are submitted, you must securely verify your online banking. This encrypted step allows our system to instantly confirm your income and financial health without requiring you to fax or upload physical pay stubs.",
     points: [
       {
-        name: "Bank account link",
-        desc: "Read-only, 256-bit encrypted connection. We never see or store your online banking password.",
+        name: "Encrypted Verification",
+        desc: "Uses bank-grade security to link your checking account without storing credentials.",
       },
       {
-        name: "Instant identity check",
-        desc: "Your account details are matched against your application to confirm it's really you.",
+        name: "No Paperwork",
+        desc: "Automated income confirmation eliminates manual paystub and document uploads.",
       },
     ],
   },
   {
     stepNumber: 3,
-    title: "Where we send funds",
-    duration: "About 1 minute",
+    title: "Live Underwriter Specialist Call",
+    duration: "Step 3: Verification call",
     intro:
-      "Review your final offer, e-sign your loan agreement, and confirm where you'd like the money deposited.",
+      "After your banking is verified, you will schedule and complete a brief call with one of our live underwriter specialists. They will review your profile in real-time, answer any questions, and finalize your approved loan terms.",
     points: [
       {
-        name: "Direct deposit destination",
-        desc: "Confirm the account that will receive your funds and your automatic repayment schedule.",
+        name: "Real-Time Review",
+        desc: "Speak directly with a dedicated specialist who reviews your profile in real-time.",
       },
       {
-        name: "Sign & receive",
-        desc: "Sign digitally in seconds. Funds are typically sent the same business day after approval.",
+        name: "Finalize Terms",
+        desc: "Get all your questions answered and finalize your approved fixed interest rates and loan amounts.",
+      },
+    ],
+  },
+  {
+    stepNumber: 4,
+    title: "Sign Agreement & Final Funding",
+    duration: "Step 4: Disbursement",
+    intro:
+      "Once your final loan agreement is digitally signed, your file is immediately transferred to a dedicated funding officer. The funding officer processes the final disbursement, sending the money directly to your checking account.",
+    points: [
+      {
+        name: "Dedicated Funding Officer",
+        desc: "Your signed agreement is immediately routed for final processing and release.",
+      },
+      {
+        name: "Direct Disbursement",
+        desc: "Funds are transferred directly into your linked US checking account typically within 24 to 48 hours.",
       },
     ],
   },
 ];
 
 const timeline = [
-  { time: "0 min", label: "Start your application" },
-  { time: "5 min", label: "Receive an instant decision" },
-  { time: "6 min", label: "E-sign your agreement" },
-  { time: "≤ 24 hrs", label: "Funds arrive in your account" },
+  { time: "Step 1", label: "Submit Application" },
+  { time: "Step 2", label: "Verify Banking" },
+  { time: "Step 3", label: "Underwriter Call" },
+  { time: "24-48 hrs", label: "Funds Disbursed" },
 ];
 
 const checklist = [
   {
-    title: "Valid government ID",
-    desc: "Driver's license, state ID, or passport.",
+    title: "Address and US ID",
+    desc: "Valid state ID, driver's license, or US passport along with proof of address.",
   },
   {
-    title: "Social Security Number",
-    desc: "Used for a soft credit check that won't affect your score.",
+    title: "Active US checking account",
+    desc: "A personal account in your name capable of receiving direct deposits.",
   },
   {
-    title: "Active checking account",
-    desc: "In your name and able to receive direct deposits.",
+    title: "Secure bank login details",
+    desc: "Used for Step 2 instant banking verification.",
   },
   {
-    title: "Email & phone number",
-    desc: "So we can send your offer and verification codes.",
+    title: "Proof of income",
+    desc: "Verifiable source of steady income to support your monthly repayment plan.",
   },
 ];
 
@@ -100,10 +114,11 @@ export default function HowItWorksPage() {
       eyebrow="How it works"
       title={
         <>
-          From application to funds. <Muted>In three steps.</Muted>
+          From application to funds.{" "}
+          <Muted>A Transparent Path to Your Funds</Muted>
         </>
       }
-      subtitle="No branch visits, no paperwork, no surprises. Here's exactly what happens when you apply with LongLake Loans."
+      subtitle="Securing a personal loan for an unexpected auto repair, emergency expense, major purchase, or rent shouldn't be complicated. Based in California and serving the entire USA, our streamlined online process is designed to get your loan approved and funded typically within 24 to 48 hours, though some complex cases may require additional processing time."
     >
       {/* Detailed Steps */}
       {steps.map((step) => (
@@ -151,12 +166,12 @@ export default function HowItWorksPage() {
         <div className={container}>
           <SectionHeader
             eyebrow="Timeline"
-            title="What to expect, minute by minute."
-            text="Most applicants go from start to signed agreement in under 10 minutes."
+            title="What to expect, step by step."
+            text="Our 4-step process ensures clear communication and fast funding timelines."
           />
           <ol className="grid grid-cols-2 lg:grid-cols-4 border-t border-ink">
             {timeline.map((item) => (
-              <li key={item.time} className="pt-6 pr-6 pb-6">
+              <li key={item.label} className="pt-6 pr-6 pb-6">
                 <div className="text-2xl sm:text-3xl font-semibold tracking-tight tabular-nums">
                   {item.time}
                 </div>
@@ -172,8 +187,8 @@ export default function HowItWorksPage() {
         <div className={container}>
           <SectionHeader
             eyebrow="Before you begin"
-            title="What you'll need."
-            text="Have these ready and you'll move through all three steps quickly. You must be at least 18 years old and a U.S. resident to apply."
+            title="Prepare for a Seamless Process"
+            text="To ensure your funding moves as quickly as possible, please have the following ready before starting your application:"
           />
           <ul className="lg:ml-[33.333%] lg:pl-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 border-t border-line">
             {checklist.map((item) => (

@@ -5,11 +5,13 @@ import { Plus } from "lucide-react";
 import PageShell, { Muted } from "@/components/PageShell";
 import { buttonPrimary, buttonSecondary, container } from "@/components/ui";
 import { companyContact } from "@/components/CompanyContact";
+import { JsonLd, faqPageSchema } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "FAQ | LongLake Loans",
+  title: "Personal Loan FAQs | LongLake Loans US",
   description:
-    "Answers to common questions about applying, eligibility, rates, repayment, and security at LongLake Loans.",
+    "Get answers about applying for personal loans for auto repairs, emergencies, major purchases, and rent. LongLake Loans offers 24-48 hour funding nationwide from California.",
+  alternates: { canonical: "/faq" },
 };
 
 const faqCategories = [
@@ -19,19 +21,19 @@ const faqCategories = [
     faqs: [
       {
         q: "What information do I need for Step 1 (Loan & Personal)?",
-        a: "You will need your legal name, contact info, current address, employment status, employer name, and your monthly income details.",
+        a: "You will need basic contact details, your requested loan amount (whether for auto repairs, rent, a major purchase, or emergencies), and standard identity verification to start your application.",
       },
       {
         q: "How does Step 2 (Banking) work?",
-        a: "Step 2 lets you securely verify your bank account using bank-grade encryption. This verifies your identity and speeds up income validation without manual paystub uploads.",
+        a: "We use a secure portal to verify your banking details online. This allows us to process applications faster for borrowers across the US.",
       },
       {
         q: "How long does the application take?",
-        a: "Most people complete all three steps in about 5 minutes. You'll get a decision on screen right after you submit.",
+        a: "The online application takes an average of 5 minutes to complete from any device.",
       },
       {
-        q: "Can I save my application and finish later?",
-        a: "Yes. Your progress is saved automatically after each section, and we'll email you a secure link to pick up where you left off.",
+        q: "Can I leave my application and finish later?",
+        a: "Yes, your progress is saved, allowing you to return and complete your application when you are ready.",
       },
     ],
   },
@@ -41,15 +43,15 @@ const faqCategories = [
     faqs: [
       {
         q: "Who is eligible to apply?",
-        a: "You must be at least 18 years old, a U.S. resident with a valid SSN, have a regular source of income, and hold an active checking account in your name.",
+        a: "LongLake Loans serves responsible borrowers nationwide across the US from our California headquarters. You must be at least 18 years old with a valid US bank account and verifiable income.",
       },
       {
         q: "Will checking my options impact my credit score?",
-        a: "No. Checking your rate uses a soft credit inquiry that does not affect your credit score. A hard inquiry only happens if you accept an offer and proceed with your loan.",
+        a: "No, checking your initial rate utilizes a soft credit inquiry, which does not affect your credit score.",
       },
       {
         q: "Can I apply with fair or limited credit?",
-        a: "Yes. We look at more than just your credit score, including your income and banking history, to give a fuller picture of your ability to repay.",
+        a: "Yes, our underwriting evaluates your complete financial picture, not just your credit score, to provide fair funding options.",
       },
     ],
   },
@@ -59,19 +61,19 @@ const faqCategories = [
     faqs: [
       {
         q: "How fast are funds transferred in Step 3?",
-        a: "Once your details are verified and the digital loan agreement is signed, funds are sent via direct deposit to your designated account — often arriving within 24 business hours.",
+        a: "Once approved, funds are typically transferred to your account within 24 hours, and up to 48 hours maximum. Some specific cases may take additional time for manual processing.",
       },
       {
         q: "How do repayments work?",
-        a: "Repayments are fixed monthly amounts automatically debited from your linked account on your chosen due date. You'll receive a reminder before every payment.",
+        a: "Repayments are set on a fixed schedule. You can set up automatic payments from your checking account to ensure you never miss a due date.",
       },
       {
         q: "Can I pay off my loan early?",
-        a: "Absolutely. There are no prepayment penalties — paying early simply reduces the total interest you pay.",
+        a: "Yes, LongLake Loans charges $0 prepayment penalties, allowing you to pay off your loan early at any time.",
       },
       {
         q: "What happens if I miss a payment?",
-        a: "Contact us as soon as possible. A late fee may apply after a 10-day grace period, but our team can often adjust your due date or set up a payment plan.",
+        a: "We charge a late payment fee of $15 or 5% of the unpaid amount. We encourage reaching out to our California-based support team if you anticipate payment issues.",
       },
     ],
   },
@@ -81,11 +83,11 @@ const faqCategories = [
     faqs: [
       {
         q: "Is my personal information safe?",
-        a: "Yes. All data is protected with 256-bit SSL encryption in transit and encrypted at rest. We never sell your personal information.",
+        a: "Yes, your application is protected with 256-bit bank-grade encryption to ensure your data is secure.",
       },
       {
         q: "Do you store my online banking password?",
-        a: "Never. Bank verification is handled through a secure, read-only connection and your login credentials are never shared with or stored by LongLake Loans.",
+        a: "No, we never store or have direct access to your online banking passwords.",
       },
     ],
   },
@@ -100,8 +102,11 @@ export default function FaqPage() {
           Questions, <Muted>answered.</Muted>
         </>
       }
-      subtitle="Everything you need to know about applying, getting funded, and repaying your LongLake Loans loan."
+      subtitle="Everything you need to know about applying, getting funded, and repaying your LongLake Loans loan. Whether you are covering an auto repair, emergency expense, major purchase, or rent, find answers on our process, eligibility, and secure 24 to 48-hour funding timeline."
     >
+      <JsonLd
+        data={faqPageSchema(faqCategories.flatMap((category) => category.faqs))}
+      />
       <section className="border-t border-line py-20 sm:py-28">
         <div className={`${container} grid grid-cols-1 lg:grid-cols-12 gap-10`}>
           {/* Category Nav */}

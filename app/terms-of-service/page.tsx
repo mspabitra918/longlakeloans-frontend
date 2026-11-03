@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Terms of Service | LongLake Loans",
   description:
     "The terms that govern your use of LongLake Loans and your loan application.",
+  alternates: { canonical: "/terms-of-service" },
 };
 
 export default function TermsOfServicePage() {

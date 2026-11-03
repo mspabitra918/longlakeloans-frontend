@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Direct Lender Disclosure | LongLake Loans",
   description:
     "LongLake Loans is a direct lender: we review, fund, and service your loan ourselves.",
+  alternates: { canonical: "/direct-lender-disclosure" },
 };
 
 export default function DirectLenderDisclosurePage() {

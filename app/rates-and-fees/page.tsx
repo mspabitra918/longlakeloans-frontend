@@ -5,23 +5,17 @@ import RepaymentCalculator from "@/components/RepaymentCalculator";
 import { CtaBanner, SectionHeader, container, section } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Rates & Fees | LongLake Loans",
+  title: "Competitive Personal Loan Rates & Zero Hidden Fees | LongLake Loans",
   description:
-    "Transparent LongLake Loans personal loan rates and fees. APRs 10%, no origination fees, and no prepayment penalties.",
+    "View transparent personal loan rates for auto repairs, emergencies, major purchases, and rent. LongLake Loans offers US-wide funding in 24-48 hours with $0 origination fees.",
+  alternates: { canonical: "/rates-and-fees" },
 };
 
 const highlights = [
-  { value: "10%", label: "APR" },
+  { value: "10%", label: "APR starting at" },
   { value: "$1K–35K", label: "Loan amounts" },
   { value: "12–60", label: "Month terms" },
   { value: "$0", label: "Origination fee" },
-];
-
-const rateTiers = [
-  { tier: "Excellent", score: "720+", apr: "5.99% – 11.99%" },
-  { tier: "Good", score: "680 – 719", apr: "12.00% – 18.99%" },
-  { tier: "Fair", score: "620 – 679", apr: "19.00% – 27.99%" },
-  { tier: "Building", score: "Below 620", apr: "28.00% – 35.99%" },
 ];
 
 const fees = [
@@ -31,13 +25,13 @@ const fees = [
   { name: "Monthly maintenance fee", amount: "$0" },
   {
     name: "Late payment fee",
-    amount: "$15 or 5%, whichever is less",
-    note: "Only after a 10-day grace period",
+    amount: "$15 or 5% of unpaid amount",
+    note: "Applies only if a payment is missed",
   },
   {
     name: "Returned payment fee",
     amount: "$15",
-    note: "If a scheduled payment is declined by your bank",
+    note: "Applies if a payment is returned",
   },
 ];
 
@@ -47,10 +41,10 @@ export default function RatesAndFeesPage() {
       eyebrow="Rates & fees"
       title={
         <>
-          Simple rates. <Muted>Zero surprises.</Muted>
+          Transparent Personal Loan Rates & <Muted>Fees</Muted>
         </>
       }
-      subtitle="You should know the full cost of your loan before you apply. Here's everything you'll pay — and everything you won't."
+      subtitle="Whether you need immediate funds for an unexpected auto repair, an emergency expense, a major purchase, or to cover rent, LongLake Loans offers straightforward financing. Operating from California to serve borrowers nationwide, we provide competitive, fixed rates with no hidden surprises. Once approved, funds are typically deposited in 24 to 48 hours (though some cases may require additional processing time)."
     >
       {/* Highlights */}
       <section className="border-t border-line">
@@ -71,52 +65,24 @@ export default function RatesAndFeesPage() {
         </div>
       </section>
 
-      {/* Rate Tiers */}
+      {/* Rates Section */}
       <section className={section}>
         <div className={container}>
           <SectionHeader
             eyebrow="01 — Interest rates"
-            title="Fixed for the life of your loan."
-            text="Your rate is based on your credit profile, income, and loan term. It never changes after you sign."
+            title="Fixed Rates for the Life of Your Loan"
+            text="Your rate is based on your unique credit profile, income, and loan term, and it will never change after you sign. We offer loan amounts ranging from $1,000 to $35,000 with flexible repayment terms of 12 to 60 months. With Annual Percentage Rates (APR) starting at 10%, you can confidently budget for your monthly payments without worrying about fluctuating interest charges."
           />
-          <div className="lg:ml-[33.333%] lg:pl-8 overflow-x-auto">
-            <table className="w-full text-sm text-left">
-              <thead>
-                <tr className="border-b border-ink text-xs uppercase tracking-[0.12em] text-muted">
-                  <th className="py-4 pr-4 font-medium">Credit profile</th>
-                  <th className="py-4 pr-4 font-medium">Typical score</th>
-                  <th className="py-4 font-medium text-right">Fixed APR</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rateTiers.map((row) => (
-                  <tr key={row.tier} className="border-b border-line">
-                    <td className="py-5 pr-4 font-medium">{row.tier}</td>
-                    <td className="py-5 pr-4 text-body tabular-nums">
-                      {row.score}
-                    </td>
-                    <td className="py-5 text-right font-medium tabular-nums">
-                      {row.apr}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <p className="mt-4 text-xs text-muted">
-              Rate ranges are illustrative. Your actual rate is shown before you
-              accept any offer.
-            </p>
-          </div>
         </div>
       </section>
 
-      {/* Fees */}
+      {/* Fee Structure Section */}
       <section className={`${section} bg-wash`}>
         <div className={container}>
           <SectionHeader
             eyebrow="02 — Fees"
-            title="Most of our fees are zero."
-            text="The rest only apply if a payment is missed. Every cost is listed in your loan agreement."
+            title="Most of Our Fees are Zero"
+            text="We believe in honest lending. That means the loan only costs what is agreed to in your final loan agreement. We do not charge borrowers for standard processing or early payoffs."
           />
           <dl className="lg:ml-[33.333%] lg:pl-8 border-t border-line">
             {fees.map((fee) => (
@@ -143,24 +109,15 @@ export default function RatesAndFeesPage() {
         </div>
       </section>
 
-      {/* Calculator */}
+      {/* Payment Calculator Section */}
       <section id="calculator" className={`${section} scroll-mt-16`}>
         <div className={container}>
           <SectionHeader
             eyebrow="03 — Calculator"
-            title="Estimate your payment."
-            text="Adjust the amount, rate, and term to see what your loan could cost."
+            title="Estimate Your Payment"
+            text="Adjust the terms, rates, and amounts below to see what your personal loan could cost. Whether you are financing a major purchase or bridging a gap for a mortgage payment, use this tool to find a monthly payment that fits comfortably within your budget."
           />
           <RepaymentCalculator />
-          <p className="mt-8 text-xs text-muted leading-relaxed max-w-3xl">
-            <span className="font-medium text-body">
-              Representative example:
-            </span>{" "}
-            A $5,000 loan repaid over 24 months at a fixed 8.00% APR would have
-            24 monthly payments of $226.14. The total amount repayable would be
-            $5,427.36, including $427.36 in interest. No origination fee
-            applies.
-          </p>
         </div>
       </section>
 

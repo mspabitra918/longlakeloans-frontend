@@ -8,7 +8,7 @@ import { buttonPrimary, container } from "@/components/ui";
 export const navLinks = [
   { href: "/how-it-works", label: "How it works" },
   { href: "/rates-and-fees", label: "Rates & fees" },
-  { href: "/about", label: "About" },
+  { href: "/about-us", label: "About Us" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];

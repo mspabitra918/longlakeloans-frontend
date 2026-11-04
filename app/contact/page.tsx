@@ -44,10 +44,10 @@ export default function ContactPage() {
                 Toll-Free: (800) 321-2233
               </a>
               <a
-                href="tel:17472005900"
+                href="tel:+17472025223"
                 className="block text-lg font-medium underline-offset-4 hover:underline wrap-break-word"
               >
-                Local: (747) 200-5900
+                Local: (747) 202-5223
               </a>
             </div>
             <p className="mt-2 text-sm text-muted">

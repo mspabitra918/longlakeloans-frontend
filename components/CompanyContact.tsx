@@ -14,8 +14,8 @@ export const companyContact = {
     },
     local: {
       label: "Local",
-      display: "(747) 200-5900",
-      href: "tel:+17472005900",
+      display: "(747) 202-5223",
+      href: "tel:+17472025223",
     },
   },
 } as const;

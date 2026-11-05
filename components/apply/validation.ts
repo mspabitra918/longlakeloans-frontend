@@ -1,4 +1,7 @@
-import { employedStatuses } from "@/components/apply/options";
+import {
+  employedStatuses,
+  loanTermOptions,
+} from "@/components/apply/options";
 import {
   MAX_AMOUNT,
   MIN_AMOUNT,
@@ -51,6 +54,8 @@ function validateLoan({ loan }: ApplicationFormData): Errors {
   if (loan.amount < MIN_AMOUNT || loan.amount > MAX_AMOUNT)
     e["loan.amount"] =
       `Choose an amount between ${formatMoney(MIN_AMOUNT)} and ${formatMoney(MAX_AMOUNT)}`;
+  if (!loanTermOptions.some(({ value }) => value === loan.loanTerm))
+    e["loan.loanTerm"] = "Select a loan term";
   if (!loan.purpose) e["loan.purpose"] = "Select what the loan is for";
   if (loan.purpose === "other" && isBlank(loan.otherPurpose))
     e["loan.otherPurpose"] = "Tell us briefly what the loan is for";

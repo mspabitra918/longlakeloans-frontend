@@ -2,6 +2,7 @@ export type ApplicationFormData = {
   loan: {
     amount: number;
     purpose: string;
+    loanTerm: number;
     otherPurpose: string;
   };
 
@@ -70,9 +71,12 @@ export const MIN_AMOUNT = 1000;
 export const MAX_AMOUNT = 35000;
 
 // Numeric fields start as NaN so "not answered yet" is distinguishable from 0
-export function createInitialFormData(amount = 5000): ApplicationFormData {
+export function createInitialFormData(
+  amount = 5000,
+  loanTerm = 24,
+): ApplicationFormData {
   return {
-    loan: { amount, purpose: "", otherPurpose: "" },
+    loan: { amount, loanTerm, purpose: "", otherPurpose: "" },
     personal: {
       firstName: "",
       lastName: "",

@@ -119,6 +119,13 @@ export const employmentStatuses: Option[] = [
   { value: "unemployed", label: "Not employed" },
 ];
 
+export const loanTermOptions = [
+  { label: "12 Months", value: 12 },
+  { label: "24 Months", value: 24 },
+  { label: "36 Months", value: 36 },
+  { label: "48 Months", value: 48 },
+];
+
 // Statuses that require employer details
 export const employedStatuses = ["full_time", "part_time", "self_employed"];
 

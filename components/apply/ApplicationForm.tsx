@@ -34,6 +34,7 @@ import {
   incomeSources,
   labelFor,
   loanPurposes,
+  loanTermOptions,
   months,
   payFrequencies,
   usStates,
@@ -512,6 +513,25 @@ function LoanStep({ data, update, errors }: StepProps) {
           <p className="mt-1.5 text-xs text-red-600">{errors["loan.amount"]}</p>
         )}
       </div>
+
+      <Field
+        as="fieldset"
+        label="Select Loan Term"
+        error={errors["loan.loanTerm"]}
+        className="sm:col-span-6"
+      >
+        <ChoiceGroup
+          options={loanTermOptions.map(({ label, value }) => ({
+            label,
+            value: String(value),
+          }))}
+          value={String(loan.loanTerm || "")}
+          onChange={(loanTerm) =>
+            update("loan", { loanTerm: Number(loanTerm) })
+          }
+          error={errors["loan.loanTerm"]}
+        />
+      </Field>
 
       <Field
         as="fieldset"

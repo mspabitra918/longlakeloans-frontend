@@ -38,7 +38,7 @@ export default function RepaymentCalculator() {
             value={loanAmount}
             onChange={(e) => setLoanAmount(Number(e.target.value))}
             aria-label="Loan amount"
-            className="w-full mt-4 accent-ink cursor-pointer"
+            className="w-full mt-4 accent-brand cursor-pointer"
           />
           <div className="flex justify-between text-xs text-muted mt-1">
             <span>$1,000</span>
@@ -62,7 +62,7 @@ export default function RepaymentCalculator() {
             value={apr}
             onChange={(e) => setApr(Number(e.target.value))}
             aria-label="APR"
-            className="w-full mt-4 accent-ink cursor-pointer"
+            className="w-full mt-4 accent-brand cursor-pointer"
           />
           <div className="flex justify-between text-xs text-muted mt-1">
             <span>5.99%</span>
@@ -80,7 +80,7 @@ export default function RepaymentCalculator() {
                 onClick={() => setLoanTerm(term)}
                 className={`py-2.5 text-sm transition-colors ${
                   loanTerm === term
-                    ? "bg-ink text-paper"
+                    ? "bg-brand text-paper"
                     : "text-body hover:bg-wash"
                 }`}
               >

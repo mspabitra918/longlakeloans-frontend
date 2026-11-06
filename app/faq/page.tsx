@@ -165,13 +165,6 @@ export default function FaqPage() {
                 <Link href="/contact" className={buttonSecondary}>
                   Contact us
                 </Link>
-                <a
-                  href={companyContact.phones.tollFree.href}
-                  aria-label={`Call Toll-Free ${companyContact.phones.tollFree.display}`}
-                  className={buttonPrimary}
-                >
-                  Call {companyContact.phones.tollFree.display}
-                </a>
               </div>
             </div>
           </div>

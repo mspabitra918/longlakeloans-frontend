@@ -13,13 +13,13 @@ export const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
-export function Logo() {
+export function Logo({ light = false }: { light?: boolean }) {
   return (
     <Link href="/" className="flex items-center gap-2.5">
-      <span className="w-6 h-6 bg-ink text-paper flex items-center justify-center text-xs font-bold">
+      <span className="w-7 h-7 rounded-md bg-paper text-brand flex items-center justify-center text-sm font-bold">
         L
       </span>
-      <span className="text-base font-semibold tracking-tight text-ink">
+      <span className={`text-base font-semibold tracking-tight ${light ? "text-paper" : "text-ink"}`}>
         LongLake Loans
       </span>
     </Link>
@@ -31,20 +31,20 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-paper/90 backdrop-blur-md border-b border-line">
+    <nav className="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur-md shadow-sm">
       <div className={`${container} flex items-center justify-between h-16`}>
-        <Logo />
+        <Logo light />
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-8 text-sm">
+        <div className="hidden lg:flex items-center gap-7 text-sm">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={`transition-colors underline-offset-[22px] decoration-1 ${
                 pathname === link.href
-                  ? "text-ink underline"
-                  : "text-muted hover:text-ink"
+                  ? "text-paper font-medium underline"
+                  : "text-paper/80 hover:text-paper"
               }`}
             >
               {link.label}
@@ -55,13 +55,13 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-3">
           <Link
             href="/track-loan"
-            className="bg-ink text-paper px-5 py-2 text-sm font-medium hover:bg-neutral-700 transition-colors"
+            className="rounded-lg bg-black/25 text-paper px-5 py-2 text-sm font-medium hover:bg-black/40 transition-colors"
           >
             Track Your Loan
           </Link>
           <Link
             href="/apply"
-            className="bg-ink text-paper px-5 py-2 text-sm font-medium hover:bg-neutral-700 transition-colors"
+            className="rounded-lg bg-brand-light text-brand-dark px-5 py-2 text-sm font-semibold hover:bg-paper transition-colors"
           >
             Apply now
           </Link>
@@ -71,7 +71,7 @@ export default function Navbar() {
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
-          className="lg:hidden p-2 -mr-2 text-ink"
+          className="lg:hidden p-2 -mr-2 text-paper"
         >
           {mobileMenuOpen ? (
             <X className="w-5 h-5" strokeWidth={1.5} />

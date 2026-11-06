@@ -12,7 +12,7 @@ const topics = [
 ];
 
 const inputClass =
-  "w-full bg-paper border border-line focus:border-ink focus:outline-none px-4 py-3 text-sm text-ink placeholder:text-neutral-400 transition-colors";
+  "w-full bg-paper border border-line focus:border-brand focus:outline-none px-4 py-3 text-sm text-ink placeholder:text-neutral-400 transition-colors";
 const labelClass = "block text-sm text-body mb-2";
 
 export default function ContactForm() {

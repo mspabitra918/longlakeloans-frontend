@@ -38,12 +38,6 @@ export default function ContactPage() {
             <Eyebrow>Phone</Eyebrow>
             <div className="mt-4 space-y-2">
               <a
-                href="tel:18003212233"
-                className="block text-lg font-medium underline-offset-4 hover:underline wrap-break-word"
-              >
-                Toll-Free: (800) 321-2233
-              </a>
-              <a
                 href="tel:+17472025223"
                 className="block text-lg font-medium underline-offset-4 hover:underline wrap-break-word"
               >

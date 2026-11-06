@@ -126,12 +126,12 @@ export default function TrackLoanPage() {
                 >
                   {companyContact.email.display}
                 </a>{" "}
-                or call our toll-free line at{" "}
+                or call our local line at{" "}
                 <a
-                  href={companyContact.phones.tollFree.href}
+                  href={companyContact.phones.local.href}
                   className="font-medium text-ink underline underline-offset-4"
                 >
-                  {companyContact.phones.tollFree.display}
+                  {companyContact.phones.local.display}
                 </a>
                 .
               </p>
@@ -139,21 +139,9 @@ export default function TrackLoanPage() {
             <div className="lg:col-span-5 lg:col-start-8">
               <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
                 <a
-                  href={companyContact.phones.tollFree.href}
-                  aria-label={`Call Toll-Free ${companyContact.phones.tollFree.display}`}
-                  className="inline-flex min-h-12 items-center justify-center gap-2 bg-ink px-5 text-sm font-medium text-paper transition-colors hover:bg-neutral-700"
-                >
-                  <Phone
-                    className="h-4 w-4"
-                    strokeWidth={1.7}
-                    aria-hidden="true"
-                  />
-                  Call Toll-Free {companyContact.phones.tollFree.display}
-                </a>
-                <a
                   href={companyContact.phones.local.href}
                   aria-label={`Call Local ${companyContact.phones.local.display}`}
-                  className="inline-flex min-h-12 items-center justify-center gap-2 bg-ink px-5 text-sm font-medium text-paper transition-colors hover:bg-neutral-700"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 bg-brand px-5 text-sm font-medium text-paper transition-colors hover:bg-brand-dark"
                 >
                   <Phone
                     className="h-4 w-4"
@@ -164,7 +152,7 @@ export default function TrackLoanPage() {
                 </a>
                 <Link
                   href="/contact"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 border border-ink px-5 text-sm font-medium text-ink transition-colors hover:bg-ink hover:text-paper"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 border border-brand px-5 text-sm font-medium text-ink transition-colors hover:bg-brand hover:text-paper"
                 >
                   Contact us
                   <ArrowRight

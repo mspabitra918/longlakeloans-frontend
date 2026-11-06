@@ -7,11 +7,6 @@ export const companyContact = {
     href: "mailto:support@longlakeloans.com",
   },
   phones: {
-    tollFree: {
-      label: "Toll-Free",
-      display: "(800) 321-2233",
-      href: "tel:+18003212233",
-    },
     local: {
       label: "Local",
       display: "(747) 202-5223",

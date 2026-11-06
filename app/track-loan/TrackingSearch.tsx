@@ -26,7 +26,7 @@ const currency = new Intl.NumberFormat("en-US", {
 
 const toneStyles: Record<StatusTone, string> = {
   action: "border-accent",
-  progress: "border-ink",
+  progress: "border-brand",
   success: "border-emerald-600",
   declined: "border-red-700",
 };
@@ -212,7 +212,7 @@ export default function TrackingSearch() {
           {content.action && (
             <Link
               href={content.action.href(result.id)}
-              className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 bg-ink px-5 text-sm font-medium text-paper transition-colors hover:bg-neutral-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+              className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 bg-brand px-5 text-sm font-medium text-paper transition-colors hover:bg-brand-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
             >
               <Landmark
                 className="h-4 w-4"
@@ -230,14 +230,7 @@ export default function TrackingSearch() {
 
           {result?.status === "bank_verification_completed" && (
             <p className="mt-4 text-sm leading-relaxed text-body">
-              Please call Toll-Free{" "}
-              <a
-                href={companyContact.phones.tollFree.href}
-                className="font-medium text-ink underline underline-offset-4"
-              >
-                {companyContact.phones.tollFree.display}
-              </a>{" "}
-              or Local{" "}
+              Please call{" "}
               <a
                 href={companyContact.phones.local.href}
                 className="font-medium text-ink underline underline-offset-4"
@@ -257,14 +250,7 @@ export default function TrackingSearch() {
               >
                 {companyContact.email.display}
               </a>{" "}
-              or call Toll-Free{" "}
-              <a
-                href={companyContact.phones.tollFree.href}
-                className="font-medium text-ink underline underline-offset-4"
-              >
-                {companyContact.phones.tollFree.display}
-              </a>{" "}
-              or Local{" "}
+              or call{" "}
               <a
                 href={companyContact.phones.local.href}
                 className="font-medium text-ink underline underline-offset-4"
@@ -283,7 +269,7 @@ export default function TrackingSearch() {
           <button
             type="button"
             onClick={searchAgain}
-            className="min-h-11 border border-ink px-4 text-sm font-medium text-ink transition-colors hover:bg-ink hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+            className="min-h-11 border border-brand px-4 text-sm font-medium text-ink transition-colors hover:bg-brand hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
           >
             Look up another application
           </button>
@@ -330,7 +316,7 @@ export default function TrackingSearch() {
             }}
             aria-invalid={validationField === "email"}
             placeholder="you@example.com"
-            className="min-h-12 w-full border border-line bg-paper px-3 text-sm text-ink placeholder:text-muted focus:border-ink focus:outline-none focus:ring-2 focus:ring-ink/15"
+            className="min-h-12 w-full border border-line bg-paper px-3 text-sm text-ink placeholder:text-muted focus:border-brand focus:outline-none focus:ring-2 focus:ring-ink/15"
           />
         </div>
 
@@ -360,7 +346,7 @@ export default function TrackingSearch() {
             aria-invalid={validationField === "applicationId"}
             aria-describedby="tracking-id-hint"
             placeholder="e.g. 12345"
-            className="min-h-12 w-full border border-line bg-paper px-3 text-sm text-ink placeholder:text-muted focus:border-ink focus:outline-none focus:ring-2 focus:ring-ink/15"
+            className="min-h-12 w-full border border-line bg-paper px-3 text-sm text-ink placeholder:text-muted focus:border-brand focus:outline-none focus:ring-2 focus:ring-ink/15"
           />
           <p id="tracking-id-hint" className="mt-2 text-xs text-muted">
             Your 5-digit ID is in your application confirmation email.
@@ -376,7 +362,7 @@ export default function TrackingSearch() {
         <button
           type="submit"
           disabled={loading}
-          className="inline-flex min-h-12 w-full items-center justify-center gap-2 bg-ink px-5 text-sm font-medium text-paper transition-colors hover:bg-neutral-700 disabled:cursor-wait disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+          className="inline-flex min-h-12 w-full items-center justify-center gap-2 bg-brand px-5 text-sm font-medium text-paper transition-colors hover:bg-brand-dark disabled:cursor-wait disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
         >
           {loading ? (
             <Loader2

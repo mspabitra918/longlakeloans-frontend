@@ -175,113 +175,128 @@ export default function HomeLandingPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section id="home" className={`${container} pt-20 pb-24 sm:pt-28`}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-end">
-          <div className="lg:col-span-7">
-            <Eyebrow>Personal loans · $1,000 – $35,000</Eyebrow>
-            <h1 className="mt-6 text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05]">
-              Fast Personal Loans for Unexpected Expenses Nationwide
-            </h1>
-            <p className="mt-8 text-lg text-body max-w-xl leading-relaxed">
-              Based in California, LongLake Loans provides secure funding across
-              the US for auto repairs, emergencies, major purchases, and rent.
-              Check your rate in minutes with no hidden fees, and receive funds
-              typically within 24 to 48 hours.
-            </p>
-            <div className="mt-10 flex flex-col sm:flex-row gap-3">
-              <Link href="/apply" className={buttonPrimary}>
-                Check Your Rate{" "}
-                <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-              </Link>
-              <Link href="/how-it-works" className={buttonSecondary}>
-                How it works
-              </Link>
-            </div>
-            <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted">
-              <span className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4" strokeWidth={1.5} /> 256-bit
-                encryption
-              </span>
-              <span className="flex items-center gap-2">
-                <Zap className="w-4 h-4" strokeWidth={1.5} /> Soft credit check
-              </span>
-              <span className="flex items-center gap-2">
-                <Clock className="w-4 h-4" strokeWidth={1.5} /> 24–48 hr funding
-              </span>
-            </div>
-          </div>
-
-          {/* Loan Estimator */}
-          <div className="lg:col-span-5">
-            <div className="border border-line p-8 bg-paper">
-              <div className="flex items-center justify-between">
-                <Eyebrow>Loan estimator</Eyebrow>
-                <span className="text-xs text-muted">Starting at 10% APR</span>
+      <section id="home" className="hero-gradient">
+        <div className={`${container} pt-20 pb-24 sm:pt-16`}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div className="lg:col-span-7">
+              <Eyebrow>Personal loans · $1,000 – $35,000</Eyebrow>
+              <h1 className="mt-6 text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-ink">
+                Fast Personal Loans for Unexpected Expenses Nationwide
+              </h1>
+              <p className="mt-8 text-lg text-body max-w-xl leading-relaxed">
+                Based in California, LongLake Loans provides secure funding
+                across the US for auto repairs, emergencies, major purchases,
+                and rent. Check your rate in minutes with no hidden fees, and
+                receive funds typically within 24 to 48 hours.
+              </p>
+              <div className="mt-10 flex flex-col sm:flex-row gap-3">
+                <Link href="/apply" className={buttonPrimary}>
+                  Check Your Rate{" "}
+                  <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
+                </Link>
+                <Link href="/how-it-works" className={buttonSecondary}>
+                  How it works
+                </Link>
               </div>
-
-              <div className="mt-8">
-                <div className="flex items-baseline justify-between">
-                  <span className="text-sm text-body">Amount</span>
-                  <span className="text-3xl font-semibold tracking-tight tabular-nums">
-                    ${loanAmount.toLocaleString()}
-                  </span>
-                </div>
-                <input
-                  type="range"
-                  min="1000"
-                  max="35000"
-                  step="500"
-                  value={loanAmount}
-                  onChange={(e) => setLoanAmount(Number(e.target.value))}
-                  aria-label="Loan amount"
-                  className="w-full mt-4 accent-ink cursor-pointer"
-                />
-                <div className="flex justify-between text-xs text-muted mt-1">
-                  <span>$1,000</span>
-                  <span>$35,000</span>
-                </div>
-              </div>
-
-              <div className="mt-8">
-                <span className="text-sm text-body">Term (months)</span>
-                <div className="mt-3 grid grid-cols-4 border border-line divide-x divide-line">
-                  {[12, 24, 36, 48].map((term) => (
-                    <button
-                      key={term}
-                      onClick={() => setLoanTerm(term)}
-                      className={`py-2.5 text-sm transition-colors ${
-                        loanTerm === term
-                          ? "bg-ink text-paper"
-                          : "text-body hover:bg-wash"
-                      }`}
-                    >
-                      {term}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-line flex items-baseline justify-between">
-                <span className="text-sm text-body">Estimated monthly</span>
-                <span className="text-2xl font-semibold tabular-nums">
-                  ${estimatedMonthly}
-                  <span className="text-sm font-normal text-muted">/mo</span>
+              <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm text-body">
+                <span className="flex items-center gap-2">
+                  <ShieldCheck
+                    className="w-4 h-4 text-brand-bright"
+                    strokeWidth={1.75}
+                  />{" "}
+                  256-bit encryption
+                </span>
+                <span className="flex items-center gap-2">
+                  <Zap
+                    className="w-4 h-4 text-brand-bright"
+                    strokeWidth={1.75}
+                  />{" "}
+                  Soft credit check
+                </span>
+                <span className="flex items-center gap-2">
+                  <Clock
+                    className="w-4 h-4 text-brand-bright"
+                    strokeWidth={1.75}
+                  />{" "}
+                  24–48 hr funding
                 </span>
               </div>
+            </div>
 
-              <Link
-                href={`/apply?amount=${loanAmount}`}
-                className={`${buttonPrimary} w-full mt-6`}
-              >
-                Apply for ${loanAmount.toLocaleString()}
-              </Link>
+            {/* Loan Estimator */}
+            <div className="lg:col-span-5">
+              <div className="rounded-2xl border border-mint-strong p-8 bg-paper shadow-xl shadow-brand/10">
+                <div className="flex items-center justify-between">
+                  <Eyebrow>Loan estimator</Eyebrow>
+                  <span className="text-xs text-muted">
+                    Starting at 10% APR
+                  </span>
+                </div>
+
+                <div className="mt-8">
+                  <div className="flex items-baseline justify-between">
+                    <span className="text-sm text-body">Amount</span>
+                    <span className="text-3xl font-semibold tracking-tight tabular-nums">
+                      ${loanAmount.toLocaleString()}
+                    </span>
+                  </div>
+                  <input
+                    type="range"
+                    min="1000"
+                    max="35000"
+                    step="500"
+                    value={loanAmount}
+                    onChange={(e) => setLoanAmount(Number(e.target.value))}
+                    aria-label="Loan amount"
+                    className="range-brand w-full mt-4 cursor-pointer"
+                  />
+                  <div className="flex justify-between text-xs text-muted mt-1">
+                    <span>$1,000</span>
+                    <span>$35,000</span>
+                  </div>
+                </div>
+
+                <div className="mt-8">
+                  <span className="text-sm text-body">Term (months)</span>
+                  <div className="mt-3 grid grid-cols-4 gap-2">
+                    {[12, 24, 36, 48].map((term) => (
+                      <button
+                        key={term}
+                        onClick={() => setLoanTerm(term)}
+                        className={`py-2.5 rounded-lg border text-sm font-medium transition-colors ${
+                          loanTerm === term
+                            ? "bg-brand border-brand text-paper"
+                            : "border-line text-body hover:border-brand hover:bg-mint"
+                        }`}
+                      >
+                        {term}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-line flex items-baseline justify-between">
+                  <span className="text-sm text-body">Estimated monthly</span>
+                  <span className="text-2xl font-semibold tabular-nums">
+                    ${estimatedMonthly}
+                    <span className="text-sm font-normal text-muted">/mo</span>
+                  </span>
+                </div>
+
+                <Link
+                  href={`/apply?amount=${loanAmount}`}
+                  className={`${buttonPrimary} w-full mt-6`}
+                >
+                  Apply for ${loanAmount.toLocaleString()}
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Stats Strip */}
-      <section className="border-t border-line">
+      <section className="bg-paper border-b border-line">
         <div
           className={`${container} grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-0 md:divide-x divide-line`}
         >
@@ -290,7 +305,7 @@ export default function HomeLandingPage() {
               key={stat.label}
               className="py-8 md:py-10 md:px-8 md:first:pl-0"
             >
-              <div className="text-3xl sm:text-4xl font-semibold tracking-tight">
+              <div className="text-3xl sm:text-4xl font-bold tracking-tight text-brand">
                 {stat.value}
               </div>
               <div className="mt-1 text-sm text-muted">{stat.label}</div>
@@ -300,20 +315,23 @@ export default function HomeLandingPage() {
       </section>
 
       {/* Primary Use Cases Section */}
-      <section id="use-cases" className={`${section} bg-wash`}>
+      <section id="use-cases" className={`${section} bg-mint`}>
         <div className={container}>
           <SectionHeader
             eyebrow="01 — Solutions"
             title="Quick Funding for Life's Major Expenses"
             text="Flexible personal loans tailored for critical individual and family needs."
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-line">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-mint-strong rounded-2xl overflow-hidden">
             {primaryUseCases.map((card) => (
               <div
                 key={card.title}
-                className="border-r border-b border-line bg-paper p-8 flex flex-col"
+                className="border-r border-b border-mint-strong bg-paper p-8 hover:bg-mint/40 transition-colors flex flex-col"
               >
-                <card.icon className="w-6 h-6 text-ink" strokeWidth={1.5} />
+                <card.icon
+                  className="w-10 h-10 p-2 rounded-lg bg-mint text-brand"
+                  strokeWidth={1.75}
+                />
                 <h3 className="mt-8 text-base font-semibold">{card.title}</h3>
                 <p className="mt-2 text-sm text-body leading-relaxed flex-1">
                   {card.desc}
@@ -334,8 +352,11 @@ export default function HomeLandingPage() {
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
             {steps.map((step) => (
-              <div key={step.stepNumber} className="border-t border-ink pt-6">
-                <span className="text-sm text-muted tabular-nums">
+              <div
+                key={step.stepNumber}
+                className="border-t-2 border-brand pt-6"
+              >
+                <span className="text-sm font-semibold text-brand-bright tabular-nums">
                   Step 0{step.stepNumber}
                 </span>
                 <h3 className="mt-3 text-xl font-semibold tracking-tight">
@@ -365,19 +386,22 @@ export default function HomeLandingPage() {
       </section>
 
       {/* Why Choose Us / Trust Metrics */}
-      <section id="why-us" className={`${section} bg-wash`}>
+      <section id="why-us" className={`${section} bg-mint`}>
         <div className={container}>
           <SectionHeader
             eyebrow="03 — Why LongLake Loans"
             title="Lending Designed Around the US Borrower"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-line">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-mint-strong rounded-2xl overflow-hidden">
             {whyChooseUs.map((card) => (
               <div
                 key={card.title}
-                className="border-r border-b border-line bg-paper p-8"
+                className="border-r border-b border-mint-strong bg-paper p-8 hover:bg-mint/40 transition-colors"
               >
-                <card.icon className="w-6 h-6 text-ink" strokeWidth={1.5} />
+                <card.icon
+                  className="w-10 h-10 p-2 rounded-lg bg-mint text-brand"
+                  strokeWidth={1.75}
+                />
                 <h3 className="mt-8 text-base font-semibold">{card.title}</h3>
                 <p className="mt-2 text-sm text-body leading-relaxed">
                   {card.desc}
@@ -399,7 +423,10 @@ export default function HomeLandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
             {partnerOptions.map((item) => (
               <div key={item.title} className="flex flex-col">
-                <item.icon className="w-6 h-6 text-ink" strokeWidth={1.5} />
+                <item.icon
+                  className="w-10 h-10 p-2 rounded-lg bg-mint text-brand"
+                  strokeWidth={1.75}
+                />
                 <h3 className="mt-6 text-lg font-semibold tracking-tight">
                   {item.title}
                 </h3>

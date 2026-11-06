@@ -318,9 +318,9 @@ export default function ApplicationForm({
                     <span
                       className={`w-7 h-7 shrink-0 flex items-center justify-center border text-xs tabular-nums ${
                         i === current
-                          ? "bg-ink border-ink text-paper"
+                          ? "bg-brand border-brand text-paper"
                           : done
-                            ? "border-ink text-ink"
+                            ? "border-brand text-ink"
                             : "border-line text-muted"
                       }`}
                     >
@@ -381,7 +381,7 @@ export default function ApplicationForm({
             </div>
             <div className="mt-3 h-px bg-line">
               <div
-                className="h-px bg-ink transition-all duration-500"
+                className="h-px bg-brand transition-all duration-500"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -487,7 +487,7 @@ function LoanStep({ data, update, errors }: StepProps) {
           value={loan.amount}
           onChange={(e) => update("loan", { amount: Number(e.target.value) })}
           aria-label="Loan amount"
-          className="w-full mt-6 accent-ink cursor-pointer"
+          className="w-full mt-6 accent-brand cursor-pointer"
         />
         <div className="flex justify-between text-xs text-muted mt-1">
           <span>{formatMoney(MIN_AMOUNT)}</span>
@@ -501,7 +501,7 @@ function LoanStep({ data, update, errors }: StepProps) {
               onClick={() => update("loan", { amount: preset })}
               className={`py-2.5 text-sm tabular-nums transition-colors ${
                 loan.amount === preset
-                  ? "bg-ink text-paper"
+                  ? "bg-brand text-paper"
                   : "text-body hover:bg-wash"
               }`}
             >
@@ -1240,7 +1240,7 @@ function ReviewStep({
       <div className="space-y-8">
         {summary.map((group) => (
           <div key={group.title}>
-            <div className="flex items-center justify-between border-b border-ink pb-2">
+            <div className="flex items-center justify-between border-b border-brand pb-2">
               <h3 className="text-sm font-semibold">{group.title}</h3>
               <button
                 type="button"

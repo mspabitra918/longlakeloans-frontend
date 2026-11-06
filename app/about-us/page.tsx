@@ -121,7 +121,7 @@ export default function AboutPage() {
         <div className={container}>
           <SectionHeader eyebrow="01 — Purpose" title="Why we exist." />
           <div className="lg:ml-[33.333%] lg:pl-8 grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="border-t border-ink pt-6">
+            <div className="border-t border-brand pt-6">
               <h3 className="text-lg font-semibold">Our mission</h3>
               <p className="mt-3 text-sm text-body leading-relaxed">
                 To empower people with the financial tools they need to overcome
@@ -129,7 +129,7 @@ export default function AboutPage() {
                 medical bills—by making credit fair, clear, and accessible.
               </p>
             </div>
-            <div className="border-t border-ink pt-6">
+            <div className="border-t border-brand pt-6">
               <h3 className="text-lg font-semibold">Our vision</h3>
               <p className="mt-3 text-sm text-body leading-relaxed">
                 A world where lending is driven by technology instead of red

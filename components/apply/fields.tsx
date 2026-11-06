@@ -11,7 +11,7 @@ export function inputClass(error?: string) {
   return `${inputBase} ${
     error
       ? "border-red-600 focus:border-red-700"
-      : "border-line focus:border-ink"
+      : "border-line focus:border-brand"
   }`;
 }
 
@@ -185,8 +185,8 @@ export function ChoiceGroup({
             onClick={() => onChange(o.value)}
             className={`relative flex items-center justify-between gap-2 border px-4 py-3 text-left text-sm transition-colors min-w-0 w-full ${
               selected
-                ? "border-ink bg-ink text-paper"
-                : `${error ? "border-red-600" : "border-line"} text-body hover:border-ink hover:text-ink`
+                ? "border-brand bg-brand text-paper"
+                : `${error ? "border-red-600" : "border-line"} text-body hover:border-brand hover:text-ink`
             }`}
           >
             {/* Added span wrapper with wrapping utilities */}
@@ -228,8 +228,8 @@ export function Checkbox({
           aria-hidden
           className={`mt-0.5 w-5 h-5 shrink-0 border flex items-center justify-center transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-ink peer-focus-visible:ring-offset-2 ${
             checked
-              ? "bg-ink border-ink text-paper"
-              : `${error ? "border-red-600" : "border-neutral-400"} group-hover:border-ink`
+              ? "bg-brand border-brand text-paper"
+              : `${error ? "border-red-600" : "border-neutral-400"} group-hover:border-brand`
           }`}
         >
           {checked && <Check className="w-3.5 h-3.5" strokeWidth={2.5} />}

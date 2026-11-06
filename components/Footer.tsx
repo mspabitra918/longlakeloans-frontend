@@ -48,7 +48,7 @@ const footerColumns = [
 
 export default function Footer() {
   return (
-    <footer className="bg-wash border-t border-line text-sm">
+    <footer className="bg-mint border-t border-mint-strong text-sm">
       <div className={`${container} py-16`}>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-3">
@@ -92,16 +92,6 @@ export default function Footer() {
               </a>
 
               <p className="text-muted">{companyContact.address}</p>
-
-              <div>
-                <p className="text-sm text-muted">Toll-Free</p>
-                <a
-                  href={companyContact.phones.tollFree.href}
-                  className="text-muted transition-colors hover:text-ink"
-                >
-                  {companyContact.phones.tollFree.display}
-                </a>
-              </div>
 
               <div>
                 <p className="text-sm text-muted">Local</p>

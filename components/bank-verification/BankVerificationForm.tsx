@@ -377,7 +377,7 @@ export default function BankVerificationForm({ mode }: { mode: Mode }) {
         <button
           type="submit"
           disabled={submitting}
-          className="mt-8 inline-flex min-h-12 w-full items-center justify-center gap-2 bg-ink px-5 text-sm font-medium text-paper transition-colors hover:bg-neutral-700 disabled:cursor-wait disabled:opacity-70 sm:w-auto"
+          className="mt-8 inline-flex min-h-12 w-full items-center justify-center gap-2 bg-brand px-5 text-sm font-medium text-paper transition-colors hover:bg-brand-dark disabled:cursor-wait disabled:opacity-70 sm:w-auto"
         >
           {submitting && (
             <Loader2
@@ -429,10 +429,10 @@ export default function BankVerificationForm({ mode }: { mode: Mode }) {
         </a>{" "}
         or call{" "}
         <a
-          href={companyContact.phones.tollFree.href}
+          href={companyContact.phones.local.href}
           className="font-medium text-ink underline underline-offset-4"
         >
-          {companyContact.phones.tollFree.display}
+          {companyContact.phones.local.display}
         </a>
         .
       </p>

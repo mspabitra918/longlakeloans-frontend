@@ -21,7 +21,8 @@ export default function PageShell({
     <div className="min-h-screen bg-paper text-ink font-sans antialiased">
       <Navbar />
 
-      <header className={`${container} pt-20 pb-16 sm:pt-28 sm:pb-20`}>
+      <header className="hero-gradient border-b border-mint-strong">
+       <div className={`${container} pt-20 pb-16 sm:pt-28 sm:pb-20`}>
         <Eyebrow>{eyebrow}</Eyebrow>
         <h1 className="mt-6 text-5xl sm:text-7xl font-semibold tracking-tight leading-[1.02] max-w-4xl">
           {title}
@@ -29,6 +30,7 @@ export default function PageShell({
         <p className="mt-8 text-lg text-body max-w-2xl leading-relaxed">
           {subtitle}
         </p>
+       </div>
       </header>
 
       <main>{children}</main>

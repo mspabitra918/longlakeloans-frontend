@@ -7,13 +7,13 @@ export const container = "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8";
 export const section = "py-20 sm:py-28 border-t border-line";
 
 export const buttonPrimary =
-  "inline-flex items-center justify-center gap-2 bg-ink text-paper px-6 py-3 text-sm font-medium hover:bg-neutral-700 transition-colors";
+  "inline-flex items-center justify-center gap-2 rounded-lg bg-brand text-paper px-6 py-3 text-sm font-semibold shadow-sm hover:bg-brand-dark transition-colors";
 export const buttonSecondary =
-  "inline-flex items-center justify-center gap-2 border border-ink text-ink px-6 py-3 text-sm font-medium hover:bg-ink hover:text-paper transition-colors";
+  "inline-flex items-center justify-center gap-2 rounded-lg border border-brand bg-paper text-brand px-6 py-3 text-sm font-semibold hover:bg-brand hover:text-paper transition-colors";
 
 export function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted">
+    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
       {children}
     </p>
   );
@@ -57,7 +57,7 @@ export function TextLink({
   return (
     <Link
       href={href}
-      className="group inline-flex items-center gap-1.5 text-sm font-medium text-ink underline-offset-4 hover:underline"
+      className="group inline-flex items-center gap-1.5 text-sm font-semibold text-brand underline-offset-4 hover:underline"
     >
       {children}
       <ArrowRight
@@ -78,7 +78,7 @@ export function CtaBanner({
   buttonLabel?: string;
 }) {
   return (
-    <section className="bg-ink text-paper">
+    <section className="bg-brand text-paper">
       <div
         className={`${container} py-20 sm:py-24 flex flex-col md:flex-row md:items-end justify-between gap-8`}
       >
@@ -86,13 +86,13 @@ export function CtaBanner({
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">
             {title}
           </h2>
-          <p className="mt-4 text-base text-neutral-400 leading-relaxed">
+          <p className="mt-4 text-base text-mint-strong leading-relaxed">
             {text}
           </p>
         </div>
         <Link
           href="/apply"
-          className="inline-flex items-center justify-center gap-2 bg-paper text-ink px-6 py-3 text-sm font-medium hover:bg-neutral-200 transition-colors shrink-0"
+          className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-light text-brand-dark px-6 py-3 text-sm font-semibold hover:bg-paper transition-colors shrink-0"
         >
           {buttonLabel} <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
         </Link>

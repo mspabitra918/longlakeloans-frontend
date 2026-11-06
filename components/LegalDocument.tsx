@@ -108,7 +108,7 @@ export default function LegalDocument({ id }: { id: string }) {
               <div
                 key={part.heading}
                 id={`section-${idx + 1}`}
-                className="scroll-mt-24 border-t border-ink pt-6 pb-12"
+                className="scroll-mt-24 border-t border-brand pt-6 pb-12"
               >
                 <span className="text-sm text-muted tabular-nums">
                   Section 0{idx + 1}
@@ -130,14 +130,6 @@ export default function LegalDocument({ id }: { id: string }) {
                 {companyContact.email.display}
               </a>{" "}
               or call{" "}
-              <a
-                href={companyContact.phones.tollFree.href}
-                className="text-ink underline underline-offset-4"
-                aria-label={`Call Toll-Free ${companyContact.phones.tollFree.display}`}
-              >
-                {companyContact.phones.tollFree.display}
-              </a>{" "}
-              (toll-free) or{" "}
               <a
                 href={companyContact.phones.local.href}
                 className="text-ink underline underline-offset-4"

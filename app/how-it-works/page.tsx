@@ -169,7 +169,7 @@ export default function HowItWorksPage() {
             title="What to expect, step by step."
             text="Our 4-step process ensures clear communication and fast funding timelines."
           />
-          <ol className="grid grid-cols-2 lg:grid-cols-4 border-t border-ink">
+          <ol className="grid grid-cols-2 lg:grid-cols-4 border-t border-brand">
             {timeline.map((item) => (
               <li key={item.label} className="pt-6 pr-6 pb-6">
                 <div className="text-2xl sm:text-3xl font-semibold tracking-tight tabular-nums">

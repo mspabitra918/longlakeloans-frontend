@@ -9,6 +9,14 @@
   --color-paper: #ffffff;
   --color-wash: #f7f7f5;
   --color-accent: #166534;
+
+  /* Green & White brand palette */
+  --color-brand: #0b5a32;
+  --color-brand-dark: #07401f;
+  --color-brand-light: #22c55e;
+  --color-brand-bright: #16a34a;
+  --color-mint: #e7f6ec;
+  --color-mint-strong: #cdeed8;
 }
 
 @theme inline {
@@ -27,7 +35,7 @@ body {
 }
 
 ::selection {
-  background: var(--color-ink);
+  background: var(--color-brand);
   color: var(--color-paper);
 }
 
@@ -40,4 +48,17 @@ body {
     opacity: 1;
     transform: none;
   }
+}
+
+/* Soft green gradient used behind hero/page headers */
+.hero-gradient {
+  background:
+    radial-gradient(60% 80% at 100% 100%, #c7ecd3 0%, transparent 60%),
+    radial-gradient(50% 60% at 0% 0%, #eaf7ee 0%, transparent 70%),
+    linear-gradient(135deg, #f3fbf5 0%, #e3f5e9 100%);
+}
+
+/* Green range slider */
+input[type="range"].range-brand {
+  accent-color: var(--color-brand);
 }

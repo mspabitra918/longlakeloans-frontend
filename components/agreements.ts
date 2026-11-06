@@ -102,7 +102,7 @@ export const agreements: Agreement[] = [
     sections: [
       {
         heading: "State Licenses & Disclosures",
-        body: "LongLake Loans is headquartered at 626 Wilshire Blvd - 5th Floor, Ste 575, Los Angeles, CA 90017.\n\n• California Residents: Loans made or arranged pursuant to a California Department of Financial Protection and Innovation (DFPI) Financing Law License PLS-90120.\n\n• • Other States: LongLake Loans operates in compliance with applicable state and federal lending laws. Loan amounts, interest rates, maximum Annual Percentage Rates (APRs), and exact funding timelines may vary based on state-specific statutory guidelines. Residents of certain states retain specific rights under local regulations, including rights of rescission, cancellation grace periods, and specific statutory disclosures regarding credit reporting and debt collection. If you have any inquiries or wish to file a consumer complaint, you may contact our support team directly at support@longlakeloans.com or (800) 321-2233, or reach out to the financial regulatory agency or division of financial institutions in your state of residence.\n\nNote: Interest rates, maximum loan amounts, and exact funding timelines may vary based on state laws.",
+        body: "LongLake Loans is headquartered at 626 Wilshire Blvd - 5th Floor, Ste 575, Los Angeles, CA 90017.\n\n• California Residents: Loans made or arranged pursuant to a California Department of Financial Protection and Innovation (DFPI) Financing Law License PLS-90120.\n\n• • Other States: LongLake Loans operates in compliance with applicable state and federal lending laws. Loan amounts, interest rates, maximum Annual Percentage Rates (APRs), and exact funding timelines may vary based on state-specific statutory guidelines. Residents of certain states retain specific rights under local regulations, including rights of rescission, cancellation grace periods, and specific statutory disclosures regarding credit reporting and debt collection. If you have any inquiries or wish to file a consumer complaint, you may contact our support team directly at support@longlakeloans.com or (747) 202-5223, or reach out to the financial regulatory agency or division of financial institutions in your state of residence.\n\nNote: Interest rates, maximum loan amounts, and exact funding timelines may vary based on state laws.",
       },
     ],
   },
@@ -124,7 +124,7 @@ export const agreements: Agreement[] = [
       },
       {
         heading: "3. Withdrawing Consent",
-        body: `You may withdraw your E-Sign consent at any time before signing your final loan agreement by contacting us at support@longlakeloans.com or calling ${companyContact.phones.tollFree.display}. Withdrawing consent will terminate your online application process.`,
+        body: `You may withdraw your E-Sign consent at any time before signing your final loan agreement by contacting us at support@longlakeloans.com or calling ${companyContact.phones.local.display}. Withdrawing consent will terminate your online application process.`,
       },
       {
         heading: "4. Digital Signatures",

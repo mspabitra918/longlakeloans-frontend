@@ -14,7 +14,7 @@ export const organizationSchema = {
   name: "LongLake Loans",
   url: siteUrl,
   email: companyContact.email.display,
-  telephone: companyContact.phones.tollFree.href.replace("tel:", ""),
+  telephone: companyContact.phones.local.href.replace("tel:", ""),
   address: {
     "@type": "PostalAddress",
     streetAddress: "626 Wilshire Blvd, 5th Floor, Ste 575",
@@ -28,15 +28,8 @@ export const organizationSchema = {
     {
       "@type": "ContactPoint",
       contactType: "customer support",
-      telephone: companyContact.phones.tollFree.href.replace("tel:", ""),
-      email: companyContact.email.display,
-      areaServed: "US",
-      availableLanguage: ["English"],
-    },
-    {
-      "@type": "ContactPoint",
-      contactType: "customer support",
       telephone: companyContact.phones.local.href.replace("tel:", ""),
+      email: companyContact.email.display,
       areaServed: "US",
       availableLanguage: ["English"],
     },

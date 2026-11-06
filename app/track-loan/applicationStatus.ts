@@ -1,4 +1,5 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5001";
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ?? "https://longlakeloans-backend.vercel.app";
 
 export type ApplicationStatusResult = {
   id: string;
@@ -120,8 +121,7 @@ export async function lookupApplicationStatus(
   const body = await res.json().catch(() => null);
   if (!res.ok || !body?.application) {
     throw new Error(
-      body?.error ??
-        "We couldn't retrieve your application. Please try again.",
+      body?.error ?? "We couldn't retrieve your application. Please try again.",
     );
   }
   return body.application as ApplicationStatusResult;

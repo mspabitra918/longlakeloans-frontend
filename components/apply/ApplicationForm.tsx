@@ -98,7 +98,8 @@ type StepProps = {
 
 const numberValue = (n: number) => (Number.isNaN(n) ? "" : String(n));
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5001";
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ?? "https://longlakeloans-backend.vercel.app";
 
 type SubmitResult = { applicationId: string; status: string };
 

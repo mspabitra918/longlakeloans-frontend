@@ -122,7 +122,7 @@ export default function ContactForm() {
             name="name"
             value={form.name}
             onChange={handleChange}
-            placeholder="Jane Doe"
+            // placeholder="Jane Doe"
             className={inputClass}
           />
         </label>
@@ -134,7 +134,7 @@ export default function ContactForm() {
             name="email"
             value={form.email}
             onChange={handleChange}
-            placeholder="jane@example.com"
+            // placeholder="jane@example.com"
             className={inputClass}
           />
         </label>
@@ -145,7 +145,7 @@ export default function ContactForm() {
             name="phone"
             value={form.phone}
             onChange={handleChange}
-            placeholder="(555) 123-4567"
+            // placeholder="(555) 123-4567"
             className={inputClass}
           />
         </label>
@@ -172,7 +172,7 @@ export default function ContactForm() {
           rows={6}
           value={form.message}
           onChange={handleChange}
-          placeholder="How can we help?"
+          // placeholder="How can we help?"
           className={`${inputClass} resize-none`}
         />
       </label>

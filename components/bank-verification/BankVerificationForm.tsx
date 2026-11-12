@@ -296,7 +296,7 @@ export default function BankVerificationForm({ mode }: { mode: Mode }) {
             <TextInput
               value={form.bankName}
               onChange={(e) => set({ bankName: e.target.value })}
-              placeholder="e.g. Chase"
+              // placeholder="e.g. Chase"
               error={errors.bankName}
               disabled
               className="bg-wash text-muted cursor-not-allowed"

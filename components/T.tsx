@@ -413,7 +413,7 @@ export default function HomeLandingPage() {
       </section>
 
       {/* Partner With Us */}
-      <section id="partner" className={section}>
+      {/* <section id="partner" className={section}>
         <div className={container}>
           <SectionHeader
             eyebrow="04 — Partners"
@@ -440,7 +440,7 @@ export default function HomeLandingPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ */}
       <section id="faq" className={section}>

@@ -552,7 +552,7 @@ function LoanStep({ data, update, errors }: StepProps) {
           <TextInput
             value={loan.otherPurpose}
             onChange={(e) => update("loan", { otherPurpose: e.target.value })}
-            placeholder="e.g. Wedding expenses"
+            // placeholder="e.g. Wedding expenses"
             maxLength={80}
             error={errors["loan.otherPurpose"]}
             autoFocus
@@ -582,7 +582,7 @@ function PersonalStep({ data, update, errors }: StepProps) {
             value={p.firstName}
             onChange={(e) => set({ firstName: e.target.value })}
             autoComplete="given-name"
-            placeholder="Jane"
+            // placeholder="Jane"
             error={errors["personal.firstName"]}
           />
         </Field>
@@ -595,7 +595,7 @@ function PersonalStep({ data, update, errors }: StepProps) {
             value={p.lastName}
             onChange={(e) => set({ lastName: e.target.value })}
             autoComplete="family-name"
-            placeholder="Doe"
+            // placeholder="Doe"
             error={errors["personal.lastName"]}
           />
         </Field>
@@ -609,7 +609,7 @@ function PersonalStep({ data, update, errors }: StepProps) {
             value={p.email}
             onChange={(e) => set({ email: e.target.value })}
             autoComplete="email"
-            placeholder="jane@example.com"
+            // placeholder="jane@example.com"
             error={errors["personal.email"]}
           />
         </Field>
@@ -624,7 +624,7 @@ function PersonalStep({ data, update, errors }: StepProps) {
             value={formatPhone(p.phone)}
             onChange={(e) => set({ phone: digitsOnly(e.target.value, 10) })}
             autoComplete="tel-national"
-            placeholder="(555) 123-4567"
+            // placeholder="(555) 123-4567"
             error={errors["personal.phone"]}
           />
         </Field>
@@ -644,7 +644,7 @@ function PersonalStep({ data, update, errors }: StepProps) {
             <Select
               aria-label="Birth month"
               options={months}
-              placeholder="Month"
+              // placeholder="Month"
               value={p.dobMonth}
               onChange={(e) => set({ dobMonth: e.target.value })}
               autoComplete="bday-month"
@@ -653,7 +653,7 @@ function PersonalStep({ data, update, errors }: StepProps) {
             <TextInput
               aria-label="Birth day"
               inputMode="numeric"
-              placeholder="DD"
+              // placeholder="DD"
               value={p.dobDay}
               onChange={(e) => set({ dobDay: digitsOnly(e.target.value, 2) })}
               autoComplete="bday-day"
@@ -662,7 +662,7 @@ function PersonalStep({ data, update, errors }: StepProps) {
             <TextInput
               aria-label="Birth year"
               inputMode="numeric"
-              placeholder="YYYY"
+              // placeholder="YYYY"
               value={p.dobYear}
               onChange={(e) => set({ dobYear: digitsOnly(e.target.value, 4) })}
               autoComplete="bday-year"
@@ -680,7 +680,7 @@ function PersonalStep({ data, update, errors }: StepProps) {
             inputMode="numeric"
             value={formatSsn(p.ssn)}
             onChange={(e) => set({ ssn: digitsOnly(e.target.value, 9) })}
-            placeholder="123-45-6789"
+            // placeholder="123-45-6789"
             autoComplete="off"
             error={errors["personal.ssn"]}
           />
@@ -695,7 +695,7 @@ function PersonalStep({ data, update, errors }: StepProps) {
             onChange={(e) =>
               set({ dlNumber: e.target.value.toUpperCase().slice(0, 20) })
             }
-            placeholder="ID number"
+            // placeholder="ID number"
             autoComplete="off"
             error={errors["personal.dlNumber"]}
           />
@@ -724,7 +724,7 @@ function PersonalStep({ data, update, errors }: StepProps) {
             value={p.streetAddress}
             onChange={(e) => set({ streetAddress: e.target.value })}
             autoComplete="address-line1"
-            placeholder="100 Market Street"
+            // placeholder="100 Market Street"
             error={errors["personal.streetAddress"]}
           />
         </Field>
@@ -733,7 +733,7 @@ function PersonalStep({ data, update, errors }: StepProps) {
             value={p.addressLine2}
             onChange={(e) => set({ addressLine2: e.target.value })}
             autoComplete="address-line2"
-            placeholder="Suite 400"
+            // placeholder="Suite 400"
           />
         </Field>
         <Field
@@ -771,7 +771,7 @@ function PersonalStep({ data, update, errors }: StepProps) {
             value={p.zip}
             onChange={(e) => set({ zip: digitsOnly(e.target.value, 5) })}
             autoComplete="postal-code"
-            placeholder="94105"
+            // placeholder="94105"
             error={errors["personal.zip"]}
           />
         </Field>
@@ -800,7 +800,7 @@ function PersonalStep({ data, update, errors }: StepProps) {
               const v = digitsOnly(e.target.value, 6);
               set({ monthlyHousingCost: v === "" ? Number.NaN : Number(v) });
             }}
-            placeholder="1,500"
+            // placeholder="1,500"
             error={errors["personal.monthlyHousingCost"]}
           />
         </Field>
@@ -896,7 +896,7 @@ function EmploymentStep({ data, update, errors }: StepProps) {
                     employmentLengthMo: v === "" ? Number.NaN : Number(v),
                   });
                 }}
-                placeholder="24"
+                // placeholder="24"
                 error={errors["employment.employmentLengthMo"]}
               />
             </Field>
@@ -913,7 +913,7 @@ function EmploymentStep({ data, update, errors }: StepProps) {
                 onChange={(e) =>
                   set({ employerPhone: digitsOnly(e.target.value, 10) })
                 }
-                placeholder="(555) 123-4567"
+                // placeholder="(555) 123-4567"
                 error={errors["employment.employerPhone"]}
               />
             </Field>
@@ -937,7 +937,7 @@ function EmploymentStep({ data, update, errors }: StepProps) {
             onChange={(e) =>
               set({ netMonthlyIncome: digitsOnly(e.target.value, 7) })
             }
-            placeholder="4,200"
+            // placeholder="4,200"
             error={errors["employment.netMonthlyIncome"]}
           />
         </Field>
@@ -1002,7 +1002,7 @@ function BankingStep({ data, update, errors }: StepProps) {
           <TextInput
             value={b.bankName}
             onChange={(e) => set({ bankName: e.target.value })}
-            placeholder="e.g. Chase"
+            // placeholder="e.g. Chase"
             error={errors["banking.bankName"]}
           />
         </Field>
@@ -1032,7 +1032,7 @@ function BankingStep({ data, update, errors }: StepProps) {
             onChange={(e) =>
               set({ routingNumber: digitsOnly(e.target.value, 9) })
             }
-            placeholder="021000021"
+            // placeholder="021000021"
             autoComplete="off"
             className="tabular-nums"
             error={errors["banking.routingNumber"]}

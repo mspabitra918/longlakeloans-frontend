@@ -1,5 +1,5 @@
 const API_URL =
-  process.env.NEXT_PUBLIC_API_URL ?? "https://longlakeloans-backend.vercel.app";
+  process.env.NEXT_PUBLIC_API_URL ?? "https://api.longlakeloans.com";
 
 export type ApplicationStatusResult = {
   id: string;

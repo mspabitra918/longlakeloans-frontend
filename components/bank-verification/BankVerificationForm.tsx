@@ -15,7 +15,7 @@ import { accountTypes } from "@/components/apply/options";
 import { companyContact } from "@/components/CompanyContact";
 
 const API_URL =
-  process.env.NEXT_PUBLIC_API_URL ?? "https://longlakeloans-backend.vercel.app";
+  process.env.NEXT_PUBLIC_API_URL ?? "https://api.longlakeloans.com";
 
 type Mode = "verify" | "reconnect";
 

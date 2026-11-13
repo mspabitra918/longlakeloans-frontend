@@ -7,6 +7,7 @@ import {
   MIN_AMOUNT,
   type ApplicationFormData,
 } from "@/components/apply/types";
+import { suggestEmail } from "@/components/apply/emailSuggestion";
 
 // Errors are keyed by "section.field", e.g. "personal.email"
 export type Errors = Record<string, string>;
@@ -68,6 +69,11 @@ function validatePersonal({ personal: p }: ApplicationFormData): Errors {
   if (isBlank(p.lastName)) e["personal.lastName"] = "Enter your last name";
   if (typeof p.email !== "string" || !EMAIL_RE.test(p.email.trim()))
     e["personal.email"] = "Enter a valid email address";
+  else {
+    // Mistyped domain (gmial.com, email.com, ...) blocks the step
+    const suggestion = suggestEmail(p.email);
+    if (suggestion) e["personal.email"] = `Did you mean ${suggestion}?`;
+  }
   if (p.phone.length !== 10)
     e["personal.phone"] = "Enter a 10-digit phone number";
 

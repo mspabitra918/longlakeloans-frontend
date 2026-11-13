@@ -22,6 +22,7 @@ import {
   Select,
   TextInput,
 } from "@/components/apply/fields";
+import { suggestEmail } from "@/components/apply/emailSuggestion";
 import {
   accountAges,
   accountTypes,
@@ -567,6 +568,11 @@ function PersonalStep({ data, update, errors }: StepProps) {
   const p = data.personal;
   const set = (patch: Partial<ApplicationFormData["personal"]>) =>
     update("personal", patch);
+  // Typo fix (gmial.com -> gmail.com), shown once the user leaves the field or
+  // presses Next. It's a blocking error: validatePersonal rejects the step too.
+  const [emailBlurred, setEmailBlurred] = useState(false);
+  const emailSuggestion =
+    emailBlurred || errors["personal.email"] ? suggestEmail(p.email) : null;
   return (
     <div className="divide-y divide-line [&>section]:pb-10 [&>section:last-child]:pb-0">
       <FormSection
@@ -601,17 +607,38 @@ function PersonalStep({ data, update, errors }: StepProps) {
         </Field>
         <Field
           label="Email address"
-          error={errors["personal.email"]}
+          // The typo message below replaces the plain-text error
+          error={emailSuggestion ? undefined : errors["personal.email"]}
           className="sm:col-span-3"
         >
           <TextInput
             type="email"
             value={p.email}
             onChange={(e) => set({ email: e.target.value })}
+            onFocus={() => setEmailBlurred(false)}
+            onBlur={() => setEmailBlurred(true)}
             autoComplete="email"
             // placeholder="jane@example.com"
-            error={errors["personal.email"]}
+            error={
+              errors["personal.email"] ?? (emailSuggestion ? "typo" : undefined)
+            }
           />
+          {emailSuggestion && (
+            <p className="mt-1.5 text-xs text-red-600" role="alert">
+              Did you mean{" "}
+              <button
+                type="button"
+                className="font-medium underline underline-offset-2"
+                onClick={() => {
+                  set({ email: emailSuggestion });
+                  setEmailBlurred(false);
+                }}
+              >
+                {emailSuggestion}
+              </button>
+              ? Fix your email to continue.
+            </p>
+          )}
         </Field>
         <Field
           label="Mobile phone"
